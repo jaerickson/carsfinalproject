@@ -28,6 +28,9 @@ github = oauth.remote_app(
     access_token_url='https://github.com/login/oauth/access_token',  
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
- 
+ @app.route('/')
+ def home():
+     return render_template('home.html')
+  
  if __name__ == '__main__':
     app.run()
