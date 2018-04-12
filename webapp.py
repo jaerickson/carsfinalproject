@@ -35,6 +35,22 @@ def home():
     if 'user_data' in session:
         log = True
     return render_template('home.html', loggedIn = log)
+   
+@app.route('/find')
+def findcar():
+    log = False
+    if 'user_data' in session:
+        log = True
+    return render_template('findacar.html', loggedIn = log)
+   
+@app.route('/account')
+def account():
+    log = False
+    if 'user_data' in session:
+        log = True
+    return render_template('account.html', loggedIn = log)
+   
+ 
   
  if __name__ == '__main__':
     app.run()
