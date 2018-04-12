@@ -3,19 +3,8 @@
 
 {% block content %}
   <h1>Welcome to CarSmart</h1>
-  <p>Here at CarSmart, we recognize the struggles that come with <br> finding a car that suits your needs. So we're helping <br> to streamline the process by creating a simple, 15 minute Quiz...</p>
+  <p>Here at CarSmart, we recognize the struggles that come with <br> finding a car that suits your needs. 
+    So we're helping <br> to streamline the process by creating a simple, 15 minute Quiz.  We hope that <br>
+    website will make choosing a car easier for you, and that you'll find a car you love</p>
   
- 
-  {% if logged_in %}
-    <form action='/posted' method="post">
-      <textarea name="message" style="width:100%; height:100px;"></textarea>
-      <br>
-      <input type="submit" value="Post">
-    </form>
-  {% else %}
-    <p>Log in to post!</p>
-  {% endif %}
-
-  {{ past_posts }}
-
 {% endblock %}
