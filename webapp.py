@@ -34,7 +34,7 @@ def home():
     log = False
     if 'user_data' in session:
         log = True
-    return render_template('home.html', past_posts=posts_to_html(), loggedIn = log)
+    return render_template('home.html', loggedIn = log)
   
  if __name__ == '__main__':
     app.run()
