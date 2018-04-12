@@ -29,6 +29,10 @@ github = oauth.remote_app(
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
 
+@app.context_processor
+def inject_logged_in():
+    return {"logged_in":('github_token' in session)}
+
 @app.route('/')
 def home():
     log = False
@@ -50,7 +54,9 @@ def account():
         log = True
     return render_template('account.html', loggedIn = log)
    
- 
+@github.tokengetter
+def get_github_oauth_token():
+    return session.get('github_token')
   
  if __name__ == '__main__':
     app.run()
