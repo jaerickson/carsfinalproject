@@ -55,6 +55,8 @@ def account():
         log = True
     return render_template('account.html', loggedIn = log)
    
+def manufactures():
+   
 @github.tokengetter
 def get_github_oauth_token():
     return session.get('github_token')
