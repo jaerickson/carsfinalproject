@@ -61,5 +61,5 @@ def manufactures():
 def get_github_oauth_token():
     return session.get('github_token')
   
- if __name__ == '__main__':
+if __name__ == '__main__':
     app.run()
