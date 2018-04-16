@@ -52,7 +52,7 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-def findcars():
+def manufacturers():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	options = ""
@@ -60,6 +60,30 @@ def findcars():
 	for c in cars:
 		if c['Identification']['Make'] not in s:
 		s.append(c['Identification']['Make'])
+		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+	
+	return options
+
+def fuel_type():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	s = []
+	for c in cars:
+		if c['Fuel Information']['Fuel Type'] not in s:
+		s.append(c['Fuel Information']['Fuel Type'])
+		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+	
+	return options
+
+def mpg_range():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	s = []
+	for c in cars:
+		if c['Fuel Information']['Fuel Type'] not in s:
+		s.append(c['Fuel Information']['Fuel Type'])
 		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
 	return options
