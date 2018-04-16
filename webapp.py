@@ -7,10 +7,9 @@ import os
 import json
 from bson.objectid import ObjectId
 import pymongo
-app.debug = True
+
  
 app = Flask(__name__)
-
 app.debug = True #Change this to False for production
 
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
@@ -38,7 +37,7 @@ def home():
     #log = False
    # if 'user_data' in session:
     #    log = True
-    log = false
+    log = False
     return render_template('home.html', loggedIn = log)
    
 @app.route('/find')
@@ -59,5 +58,5 @@ def account():
 def get_github_oauth_token():
     return session.get('github_token')
   
- if __name__ == '__main__':
+if __name__ == '__main__':
     app.run()
