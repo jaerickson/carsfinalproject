@@ -53,6 +53,16 @@ def account():
     if 'user_data' in session:
         log = True
     return render_template('account.html', loggedIn = log)
+def manufacturers():
+  with open('cars.json') as cars_data:
+        cars = json.load(cars_data)
+    options = ""
+    s = []
+    for c in counties:
+        if not c["State"] in s:
+            s.append(c["State"])
+            options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+    return options
    
 @github.tokengetter
 def get_github_oauth_token():
