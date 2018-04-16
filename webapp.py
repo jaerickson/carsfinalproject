@@ -51,7 +51,8 @@ def account():
 	if 'user_data' in session:
 		log = True
 	return render_template('account.html', loggedIn = log)
-def manufacturers():
+
+def findcars():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	options = ""
