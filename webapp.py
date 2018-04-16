@@ -61,6 +61,7 @@ def findcars():
 		if c['Identification']['Make'] not in s:
 		s.append(c['Identification']['Make'])
 		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+	
 	return options
    
 @app.route('/login')
