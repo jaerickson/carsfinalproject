@@ -58,9 +58,9 @@ def manufacturers():
         cars = json.load(cars_data)
     options = ""
     s = []
-    for c in counties:
-        if not c["State"] in s:
-            s.append(c["State"])
+    for c in cars:
+        if c['Identification']['Make'] not in s:
+            s.append(c['Identification']['Make'])
             options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
     return options
    
