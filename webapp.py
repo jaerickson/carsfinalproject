@@ -34,10 +34,10 @@ def inject_logged_in():
 
 @app.route('/')
 def home():
-    #log = False
-   # if 'user_data' in session:
-    #    log = True
     log = False
+    if 'user_data' in session:
+        log = True
+    #log = False
     return render_template('home.html', loggedIn = log)
    
 @app.route('/find')
