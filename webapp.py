@@ -4,27 +4,27 @@ from flask import render_template
 import pprint
 import os
 import json
-from bson.objectid import ObjectId
-import pymongo
+#from bson.objectid import ObjectId
+#import pymongo
 
  
 app = Flask(__name__)
 app.debug = True #Change this to False for production
 
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
-# oauth = OAuth(app)
+oauth = OAuth(app)
 
-#Set up GitHub as OAuth provider
-# github = oauth.remote_app(
-# 	'github',
-# 	consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth consumer_secret=os.environ['GITHUB_CLIENT_SECRET'],#your web app's "password" for github's OAuth
-# 	request_token_params={'scope': 'user:email'}, #request read-only access to the user's email.  For a list of possible scopes, see developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps
-# 	base_url='https://api.github.com/',
-# 	request_token_url=None,
-# 	access_token_method='POST',
-# 	access_token_url='https://github.com/login/oauth/access_token',  
-# 	authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
-# )
+github = oauth.remote_app(
+	'github',
+ 	consumer_key=os.environ['GITHUB_CLIENT_ID'],
+	consumer_secret=os.environ['GITHUB_CLIENT_SECRET'],
+ 	request_token_params={'scope': 'user:email'}, #request read-only access to the user's email.  For a list of possible scopes, see developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps
+ 	base_url='https://api.github.com/',
+ 	request_token_url=None,
+ 	access_token_method='POST',
+ 	access_token_url='https://github.com/login/oauth/access_token',  
+ 	authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
+)
 
 @app.context_processor
 def inject_logged_in():
@@ -33,8 +33,8 @@ def inject_logged_in():
 @app.route('/')
 def home():
 	log = False
-	if 'user_data' in session:
-		log = True
+	#if 'user_data' in session:
+	#	log = True
 	return render_template('home.html', loggedIn = log)
    
 @app.route('/find')
@@ -51,41 +51,40 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-def manufacturers():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	for c in cars:
-		if c['Identification']['Make'] not in s:
-		s.append(c['Identification']['Make'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+#def manufacturers():
+	#with open('cars.json') as cars_data:
+		#cars = json.load(cars_data)
+	#s = []
+	#for c in cars:
+		#if c['Identification']['Make'] not in s:
+		#s.append(c['Identification']['Make'])
+		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	return options
+	#return options
 
-def fuel_type():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	for c in cars:
-		if c['Fuel Information']['Fuel Type'] not in s:
-		s.append(c['Fuel Information']['Fuel Type'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+#def fuel_type():
+	#with open('cars.json') as cars_data:
+		#cars = json.load(cars_data)
+	#options = ""
+	#s = []
+	#for c in cars:
+		#if c['Fuel Information']['Fuel Type'] not in s:
+		#s.append(c['Fuel Information']['Fuel Type'])
+		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	return options
+	#return options
 
-def mpg_range():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	for c in cars:
-		if c['Fuel Information']['Fuel Type'] not in s:
-		s.append(c['Fuel Information']['Fuel Type'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+#def mpg_range():
+	#with open('cars.json') as cars_data:
+		#cars = json.load(cars_data)
+	#options = ""
+	#s = []
+	#for c in cars:
+		#if c['Fuel Information']['Fuel Type'] not in s:
+		#s.append(c['Fuel Information']['Fuel Type'])
+		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	return options
+	#return options
    
 # @app.route('/login')
 # def login():   
