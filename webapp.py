@@ -88,7 +88,7 @@ def way_range_options():
 			min =c['Fuel Information']['Highway mpg']
 		if c['Fuel Information']['Highway mpg'] is > max:
 			max =c['Fuel Information']['Highway mpg']
-	return min + "," + max
+	return str(min) + str(",") + str(max)
 
 #city_range_options is not finished
 def city_range_options():
@@ -103,7 +103,7 @@ def city_range_options():
 			min = c['Fuel Information']['City mph']
 		if c['Fuel Information']['City mph'] is > max:
 			max = c['Fuel Information']['City mph']
-	return min + "," + max
+	return str(min) + str(",") + str(max)
    
 # @app.route('/login')
 # def login():   
