@@ -74,17 +74,17 @@ def fuel_type_options():
 	
 	return options
 
-#def mpg_range_options():
-	#with open('cars.json') as cars_data:
-		#cars = json.load(cars_data)
-	#options = ""
-	#s = []
-	#for c in cars:
-		#if c['Fuel Information']['Fuel Type'] not in s:
-		#s.append(c['Fuel Information']['Fuel Type'])
-		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+def mpg_range_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	s = []
+	for c in cars:
+		if c['Fuel Information']['Fuel Type'] not in s:
+		s.append(c['Fuel Information']['Fuel Type'])
+		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	#return options
+	return options
    
 # @app.route('/login')
 # def login():   
