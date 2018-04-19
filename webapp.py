@@ -96,10 +96,14 @@ def city_range_options():
 		cars = json.load(cars_data)
 	options = ""
 	s = []
+	min = c[0]['Fuel Information']['City mph']
+	max = c[0]['Fuel Information']['City mph']
 	for c in cars:
-		if c['Fuel Information']['City mph'] not in s:
-		s.append(c['Fuel Information']['City mph '])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+		if c['Fuel Information']['City mph'] is < min:
+			min = c['Fuel Information']['City mph']
+		if c['Fuel Information']['City mph'] is > max:
+			max = c['Fuel Information']['City mph']
+	return min + "," + max
    
 # @app.route('/login')
 # def login():   
