@@ -51,17 +51,19 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
+#manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	s = []
 	for c in cars:
 		if c['Identification']['Make'] not in s:
-		s.append(c['Identification']['Make'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-	
+			s.append(c['Identification']['Make'])
+	for o in s:
+		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
 	return options
 
+#fuel_type_options is not finished
 def fuel_type_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
@@ -71,9 +73,9 @@ def fuel_type_options():
 		if c['Fuel Information']['Fuel Type'] not in s:
 		s.append(c['Fuel Information']['Fuel Type'])
 		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-	
 	return options
 
+#way_range_options is finished
 def way_range_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
@@ -87,6 +89,8 @@ def way_range_options():
 		if c['Fuel Information']['Highway mpg'] is > max:
 			max =c['Fuel Information']['Highway mpg']
 	return min + "," + max
+
+#city_range_options is not finished
 def city_range_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
