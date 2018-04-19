@@ -33,8 +33,8 @@ def inject_logged_in():
 @app.route('/')
 def home():
 	log = False
-	#if 'user_data' in session:
-	#	log = True
+	if 'user_data' in session:
+		log = True
 	return render_template('home.html', loggedIn = log)
    
 @app.route('/find')
@@ -86,36 +86,36 @@ def account():
 	
 	#return options
    
-# @app.route('/login')
-# def login():   
-# 	return github.authorize(callback=url_for('authorized', _external=True, _scheme='httpS')) #callback URL must match the pre-configured callback URL
+@app.route('/login')
+def login():   
+ 	return github.authorize(callback=url_for('authorized', _external=True, _scheme='http')) #callback URL must match the pre-configured callback URL
 
-# @app.route('/logout')
-# def logout():
-# 	session.clear()
-# 	return render_template('message.html', message='You were logged out')
+@app.route('/logout')
+def logout():
+ 	session.clear()
+ 	return render_template('message.html', message='You were logged out')
 
-# @app.route('/login/authorized')
-# def authorized():
-# 	resp = github.authorized_response()
-# 	if resp is None:
-# 		session.clear()
-# 		message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
-# 	else:
-# 		try:
-# 			session['github_token'] = (resp['access_token'], '') #save the token to prove that the user logged in
-# 			session['user_data']=github.get('user').data
-# 			message='You were successfully logged in as ' + session['user_data']['login']
-# 		except Exception as inst:
-# 			session.clear()
-# 			print(inst)
-# 			message='Unable to login, please try again.  '
-# 	return render_template('message.html', message=message)
+@app.route('/login/authorized')
+def authorized():
+ 	resp = github.authorized_response()
+ 	if resp is None:
+ 		session.clear()
+ 		message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
+ 	else:
+ 		try:
+ 			session['github_token'] = (resp['access_token'], '') #save the token to prove that the user logged in
+ 			session['user_data']=github.get('user').data
+ 			message='You were successfully logged in as ' + session['user_data']['login']
+ 		except Exception as inst:
+ 			session.clear()
+ 			print(inst)
+ 			message='Unable to login, please try again.  '
+ 	return render_template('message.html', message=message)
     
 
-# @github.tokengetter
-# def get_github_oauth_token():
-# 	return session.get('github_token')
+@github.tokengetter
+def get_github_oauth_token():
+ 	return session.get('github_token')
   
 if __name__ == '__main__':
 	app.run()
