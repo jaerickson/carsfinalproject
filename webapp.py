@@ -129,7 +129,7 @@ def authorized():
  			session.clear()
  			print(inst)
  			message='Unable to login, please try again.  '
- 	return render_template('message.html', message=message)
+ 	return redirect(url_for('home'))
     
 
 @github.tokengetter
