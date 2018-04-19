@@ -79,19 +79,21 @@ def way_range_options():
 		cars = json.load(cars_data)
 	options = ""
 	s = []
+	min = c[0]['Fuel Information']['Highway mpg']
+	max = c[0]['Fuel Information']['Highway mpg']
 	for c in cars:
-		if c['Fuel Information']['Fuel Type'] not in s:
-		s.append(c['Fuel Information']['Highway mpg'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-	
-	return options
+		if c['Fuel Information']['Highway mpg'] is < min:
+			min =c['Fuel Information']['Highway mpg']
+		if c['Fuel Information']['Highway mpg'] is > max:
+			max =c['Fuel Information']['Highway mpg']
+	return min + "," + max
 def city_range_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	options = ""
 	s = []
 	for c in cars:
-		if c['Fuel Information']['Fuel Type'] not in s:
+		if c['Fuel Information']['City mph'] not in s:
 		s.append(c['Fuel Information']['City mph '])
 		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
    
