@@ -51,30 +51,30 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-#def manufacturers():
-	#with open('cars.json') as cars_data:
-		#cars = json.load(cars_data)
-	#s = []
-	#for c in cars:
-		#if c['Identification']['Make'] not in s:
-		#s.append(c['Identification']['Make'])
-		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+def manufacturers_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	s = []
+	for c in cars:
+		if c['Identification']['Make'] not in s:
+		s.append(c['Identification']['Make'])
+		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	#return options
+	return options
 
-#def fuel_type():
-	#with open('cars.json') as cars_data:
-		#cars = json.load(cars_data)
-	#options = ""
-	#s = []
-	#for c in cars:
-		#if c['Fuel Information']['Fuel Type'] not in s:
-		#s.append(c['Fuel Information']['Fuel Type'])
-		#options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+def fuel_type_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	s = []
+	for c in cars:
+		if c['Fuel Information']['Fuel Type'] not in s:
+		s.append(c['Fuel Information']['Fuel Type'])
+		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
 	
-	#return options
+	return options
 
-#def mpg_range():
+#def mpg_range_options():
 	#with open('cars.json') as cars_data:
 		#cars = json.load(cars_data)
 	#options = ""
