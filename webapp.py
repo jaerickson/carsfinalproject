@@ -52,7 +52,6 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
