@@ -51,7 +51,7 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-"""#manufacturers_options is finished
+#manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
@@ -103,7 +103,7 @@ def city_range_options():
 			min = c['Fuel Information']['City mph']
 		if c['Fuel Information']['City mph'] is > max:
 			max = c['Fuel Information']['City mph']
-	return str(min) + str(",") + str(max)"""
+	return str(min) + str(",") + str(max)
    
 @app.route('/login')
 def login():   
