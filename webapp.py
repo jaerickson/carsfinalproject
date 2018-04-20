@@ -61,8 +61,7 @@ def manufacturers_options():
 	for c in cars:
 		if  not c['Identification']['Make'] in s:
 			s.append(c['Identification']['Make'])
-	for o in s:
-		options += Markup("<option value=\"" + o + "\">" + o + "</option>")
+			options += Markup("<option value=\"" + c['Identification']['Make'] + "\">" + c['Identification']['Make'] + "</option>")
 	return options
 
 # #fuel_type_options is not finished
