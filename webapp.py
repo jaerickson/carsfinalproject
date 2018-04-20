@@ -42,8 +42,8 @@ def findcar():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('findacar.html', loggedIn = log)
-# 	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options())
+# 	return render_template('findacar.html', loggedIn = log)
+ 	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options())
    
 @app.route('/account')
 def account():
@@ -52,17 +52,17 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log)
 
-#manufacturers_options is finished
-# def manufacturers_options():
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	s = []
-# 	for c in cars:
-# 		if c['Identification']['Make'] not in s:
-# 			s.append(c['Identification']['Make'])
-# 	for o in s:
-# 		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
-# 	return options
+manufacturers_options is finished
+def manufacturers_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	s = []
+	for c in cars:
+		if c['Identification']['Make'] not in s:
+			s.append(c['Identification']['Make'])
+	for o in s:
+		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
+	return options
 
 # #fuel_type_options is not finished
 # def fuel_type_options():
