@@ -56,12 +56,13 @@ manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
+	options = ""
 	s = []
 	for c in cars:
 		if c['Identification']['Make'] not in s:
 			s.append(c['Identification']['Make'])
 	for o in s:
-		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
+		options += Markup("<option value=\"" + o + "\">" + o + "</option>")
 	return options
 
 # #fuel_type_options is not finished
