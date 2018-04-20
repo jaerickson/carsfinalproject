@@ -52,58 +52,58 @@ def account():
 	return render_template('account.html', loggedIn = log)
 
 #manufacturers_options is finished
-def manufacturers_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	s = []
-	for c in cars:
-		if c['Identification']['Make'] not in s:
-			s.append(c['Identification']['Make'])
-	for o in s:
-		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
-	return options
+# def manufacturers_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	s = []
+# 	for c in cars:
+# 		if c['Identification']['Make'] not in s:
+# 			s.append(c['Identification']['Make'])
+# 	for o in s:
+# 		options += Markup("<input type="checkbox" name="make1" value=\"" + o + "\">" + o + "<br>")
+# 	return options
 
-#fuel_type_options is not finished
-def fuel_type_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	for c in cars:
-		if c['Fuel Information']['Fuel Type'] not in s:
-		s.append(c['Fuel Information']['Fuel Type'])
-		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-	return options
+# #fuel_type_options is not finished
+# def fuel_type_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	options = ""
+# 	s = []
+# 	for c in cars:
+# 		if c['Fuel Information']['Fuel Type'] not in s:
+# 		s.append(c['Fuel Information']['Fuel Type'])
+# 		options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+# 	return options
 
-#way_range_options is finished
-def way_range_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	min = c[0]['Fuel Information']['Highway mpg']
-	max = c[0]['Fuel Information']['Highway mpg']
-	for c in cars:
-		if c['Fuel Information']['Highway mpg'] is < min:
-			min =c['Fuel Information']['Highway mpg']
-		if c['Fuel Information']['Highway mpg'] is > max:
-			max =c['Fuel Information']['Highway mpg']
-	return str(min) + str(",") + str(max)
+# #way_range_options is finished
+# def way_range_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	options = ""
+# 	s = []
+# 	min = c[0]['Fuel Information']['Highway mpg']
+# 	max = c[0]['Fuel Information']['Highway mpg']
+# 	for c in cars:
+# 		if c['Fuel Information']['Highway mpg'] is < min:
+# 			min =c['Fuel Information']['Highway mpg']
+# 		if c['Fuel Information']['Highway mpg'] is > max:
+# 			max =c['Fuel Information']['Highway mpg']
+# 	return str(min) + str(",") + str(max)
 
-#city_range_options is not finished
-def city_range_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	min = c[0]['Fuel Information']['City mph']
-	max = c[0]['Fuel Information']['City mph']
-	for c in cars:
-		if c['Fuel Information']['City mph'] is < min:
-			min = c['Fuel Information']['City mph']
-		if c['Fuel Information']['City mph'] is > max:
-			max = c['Fuel Information']['City mph']
-	return str(min) + str(",") + str(max)
+# #city_range_options is not finished
+# def city_range_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	options = ""
+# 	s = []
+# 	min = c[0]['Fuel Information']['City mph']
+# 	max = c[0]['Fuel Information']['City mph']
+# 	for c in cars:
+# 		if c['Fuel Information']['City mph'] is < min:
+# 			min = c['Fuel Information']['City mph']
+# 		if c['Fuel Information']['City mph'] is > max:
+# 			max = c['Fuel Information']['City mph']
+# 	return str(min) + str(",") + str(max)
    
 @app.route('/login')
 def login():   
