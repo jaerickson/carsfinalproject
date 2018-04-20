@@ -59,7 +59,7 @@ def manufacturers_options():
 	options = ""
 	s = []
 	for c in cars:
-		if c['Identification']['Make'] not in s:
+		if  not c['Identification']['Make'] in s:
 			s.append(c['Identification']['Make'])
 	for o in s:
 		options += Markup("<option value=\"" + o + "\">" + o + "</option>")
