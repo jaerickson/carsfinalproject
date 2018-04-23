@@ -57,22 +57,22 @@ def manufacturers_options():
 	options = ""
 	manufacturers= []
 	for c in cars:
-		if c['Identification']['Make'] not in manufacturers:
+		if not c['Identification']['Make'] in manufacturers:
 			manufacturers.append(c['Identification']['Make'])
 	for o in manufacturers:
 		options += Markup("<input type="checkbox" name="vehicle" value=\"" + o + "\">" + o + "<br>")
 	return options
 
-def fuel_type_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	s = []
-	for c in cars:
-		if  not c['Fuel Information']['Fuel Type'] in s:
-			s.append(c['Fuel Information']['Fuel Type'])
-			options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-	return options
+# def fuel_type_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	options = ""
+# 	s = []
+# 	for c in cars:
+# 		if  not c['Fuel Information']['Fuel Type'] in s:
+# 			s.append(c['Fuel Information']['Fuel Type'])
+# 			options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+# 	return options
 
 # #way_range_options is finished
 # def way_range_options():
