@@ -42,7 +42,7 @@ def findcar():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options())
+	return render_template('findacar.html', loggedIn = log) """manufacturers = manufacturers_options(), fuel_type = fuel_type_options()"""
    
 @app.route('/account')
 def account():
@@ -50,7 +50,7 @@ def account():
 	if 'user_data' in session:
 		log = True
 	return render_template('account.html', loggedIn = log)
-
+"""
 #manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
@@ -103,7 +103,7 @@ def city_range_options():
 			min = c['Fuel Information']['City mph']
 		if c['Fuel Information']['City mph'] is > max:
 			max = c['Fuel Information']['City mph']
-	return str(min) + str(",") + str(max)
+	return str(min) + str(",") + str(max)"""
    
 @app.route('/login')
 def login():   
