@@ -49,7 +49,7 @@ def account():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
+	return render_template('account.html', loggedIn = log)
 
 #manufacturers_options is finished
 def manufacturers_options():
