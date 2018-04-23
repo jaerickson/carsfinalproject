@@ -59,7 +59,7 @@ def manufacturers_options():
 	for c in cars:
 		if c['Identification']['Make'] not in manufacturers:
 			manufacturers.append(c['Identification']['Make'])
- 	for o in manufacturers:
+	for o in manufacturers:
 		options += Markup('<input type="checkbox" name="vehicle" value=\"' + o + "\">" + o + '<br>')
 	return options
 
