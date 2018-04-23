@@ -51,7 +51,7 @@ def account():
 		log = True
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
-"""#manufacturers_options is finished
+#manufacturers_options is finished
 def manufacturers_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
