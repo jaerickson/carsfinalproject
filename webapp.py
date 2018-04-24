@@ -78,10 +78,10 @@ def fuel_type_options():
 def cylinder_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
-	index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
 	options = ""
 	cylinders= []
 	for c in cars:
+		index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
 		if index not in cylinders:
 			cylinders.append(c['Engine Information']['Engine Type'][index])
 	for o in cylinders:
