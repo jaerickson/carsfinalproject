@@ -78,11 +78,11 @@ def fuel_type_options():
 def cylinder_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
+	index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
 	options = ""
 	cylinders= []
 	for c in cars:
-		if c['Engine Information']['Engine Type'] not in cylinders:
-			index=int(int(c['Engine Information']['Engine Type'].index('cylinder'))-2)
+		if index not in cylinders:
 			cylinders.append(c['Engine Information']['Engine Type'][index])
 	for o in cylinders:
 		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + '<br>')
