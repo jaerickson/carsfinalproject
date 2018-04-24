@@ -42,7 +42,7 @@ def findcar():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options())
+	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options())
    
 @app.route('/account')
 def account():
@@ -63,16 +63,17 @@ def manufacturers_options():
 		options += Markup('<input type="checkbox" name="vehicle" value=\"' + o + "\">" + o + '<br>')
 	return options
 
-# def fuel_type_options():
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	options = ""
-# 	s = []
-# 	for c in cars:
-# 		if  not c['Fuel Information']['Fuel Type'] in s:
-# 			s.append(c['Fuel Information']['Fuel Type'])
-# 			options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
-# 	return options
+def fuel_type_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	fuels= []
+	for c in cars:
+		if c['Fuel Information']['Fuel Type'] not in fuels:
+			fuels.append(c['Fuel Information']['Fuel Type'])
+	for o in fuels:
+		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + '<br>')
+	return options
 
 # #way_range_options is finished
 # def way_range_options():
