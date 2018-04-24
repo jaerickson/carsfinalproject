@@ -75,7 +75,7 @@ def fuel_type_options():
 		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + '<br>')
 	return options
 
-def cyclinder_options():
+def cylinder_options():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	options = ""
