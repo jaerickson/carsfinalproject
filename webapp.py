@@ -94,11 +94,9 @@ def cylinder_options():
 		cars = json.load(cars_data)
 	options = ""
 	cylinders= []
-	char= 5
-	index = 10
-# 	for c in cars:
-# 		index=c['Engine Information']['Engine Type'].index('cylinder')-2
-# 		char=c['Engine Information']['Engine Type'][index]
+	for c in cars:
+		index=c['Engine Information']['Engine Type'].index('cylinder')
+		char=c['Engine Information']['Engine Type'][index-2]
 		if char not in cylinders:
 			cylinders.append(cars[0]['Engine Information']['Engine Type'][index])
 	for o in cylinders:
