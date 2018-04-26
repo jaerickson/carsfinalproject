@@ -75,18 +75,18 @@ def fuel_type_options():
 		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + '<br>')
 	return options
 
-def cylinder_options():
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	options = ""
-	cylinders= []
-	for c in cars:
-		index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
-		if index not in cylinders:
-			cylinders.append(c['Engine Information']['Engine Type'][index])
-	for o in cylinders:
-		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + '<br>')
-	return options
+# def cylinder_options():
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	options = ""
+# 	cylinders= []
+# 	for c in cars:
+# 		index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
+# 		if index not in cylinders:
+# 			cylinders.append(c['Engine Information']['Engine Type'][index])
+# 	for o in cylinders:
+# 		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + '<br>')
+# 	return options
 
 # #way_range_options is finished
 # def way_range_options():
