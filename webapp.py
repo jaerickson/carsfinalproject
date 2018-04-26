@@ -49,7 +49,7 @@ def account():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('account.html', loggedIn = log)
+	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'] )
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
@@ -62,6 +62,7 @@ def manufacturers_options():
 	for o in manufacturers:
 		options += Markup('<input type="checkbox" name="vehicle" value=\"' + o + "\">" + o + '<br>')
 	return options
+
 
 def fuel_type_options():
 	with open('cars.json') as cars_data:
