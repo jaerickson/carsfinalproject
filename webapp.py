@@ -1,5 +1,5 @@
-#import pymongo
-#import Flask-pymongo
+import pymongo
+import Flask-pymongo
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
@@ -18,15 +18,15 @@ app.debug = True #Change this to False for production
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 
-#url = 'mongodb://{}:{}@{}:{}/{}'.format(
-#        os.environ["MONGO_USERNAME"],
-#        os.environ["MONGO_PASSWORD"],
-#        os.environ["MONGO_HOST"],
-#        os.environ["MONGO_PORT"],
-#        os.environ["MONGO_DBNAME"])
-#client = pymongo.MongoClient(url)
-#db = client[os.environ["MONGO_DBNAME"]]
-#collection = db['collection']
+url = 'mongodb://{}:{}@{}:{}/{}'.format(
+        os.environ["MONGO_USERNAME"],
+        os.environ["MONGO_PASSWORD"],
+        os.environ["MONGO_HOST"],
+        os.environ["MONGO_PORT"],
+        os.environ["MONGO_DBNAME"])
+client = pymongo.MongoClient(url)
+db = client[os.environ["MONGO_DBNAME"]]
+collection = db['collection']
 
 
 github = oauth.remote_app(
