@@ -103,7 +103,9 @@ def cylinder_options():
 	for o in cylinders:
 		if o == 0:
 			o = 10
-		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+		else:
+			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
 	return options
 
 # #way_range_options is finished
