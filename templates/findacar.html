@@ -11,20 +11,19 @@
 	<p>yUMMMMMMMMMMMMMMMMM</p>
  <form action="/find" method="POST">
   
-  Question 1:Select the transmission you want<br>
-  <input type="radio" name="q1" > automatic  <br>
-  <input type="radio" name="q1" > manual  <br>
+  Question 1: Select a transmission type<br>
+  <input type="radio" name="q1" > Automatic  <br>
+  <input type="radio" name="q1" > Manual  <br>
   <br>
-  Question 2:How many cylinders do you want?<br>
-	 {{ cylinder }}
+  Question 2: Select a minimum number of cylinders<br>
+  {{ cylinder }}
   <input type="radio" name="cylinder" value`="idk" > don't know <br>
   <br>
-  Question 3:Do you want a hybrid?<br>
-  <input type="radio" name="q3" > yes <br>
-  <input type="radio" name="q3" > no<br>
-  <input type="radio" name="q3" > don't mind <br>
+  Question 3: Would you like hybrid recommendations?<br>
+  <input type="radio" name="q3" > Yes<br>
+  <input type="radio" name="q3" > No<br>
   <br>
-  Question 4:Number of forward gears<br>
+  Question 4: Select a minimum number of forward gears<br>
   <input type="radio" name="q4" > 2 <br>
   <input type="radio" name="q4" > 3<br>
   <input type="radio" name="q4" > 4<br>
@@ -33,15 +32,16 @@
   <input type="radio" name="q4" > 7<br>
   <input type="radio" name="q4" > don't know <br>
   <br>
-  Question 5:Select your driveline preference<br>
-   <input type="radio" name="q5" >front wheel drive  <br>
+  Question 5: Select your driveline preferences<br>
+  <input type="radio" name="q5" >front wheel drive  <br>
   <input type="radio" name="q5" > rear wheel drive <br>
   <input type="radio" name="q5" > all wheel drive  <br>
   <br>
-  Question 6:Select the manufacturers you prefer<br>
+  Question 6: Select your preferred manufacturers<br>
   {{ manufacturers}}
   <br>
-  Question 7:What is the oldest year car you want?<br>
+  Question 7: How old of a car are you interested in purchasing?<br>
+  <input type="radio" name="q5" > all wheel drive  <br>
   <br>
   Question 8:Do you wnat a large, medium, or small car?<br>
    <input type="radio" name="q8" > large <br>
