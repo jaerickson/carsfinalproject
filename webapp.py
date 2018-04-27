@@ -97,9 +97,9 @@ def cylinder_options():
 	for c in cars:
 		if 'cylinder' in c['Engine Information']['Engine Type']:
 			index=c['Engine Information']['Engine Type'].index('cylinder')
-			char=c['Engine Information']['Engine Type'][index-2]
+			char=c['Engine Information']['Engine Type'][index-3]
 			if char not in cylinders:
-				cylinders.append(c['Engine Information']['Engine Type'][index-2])
+				cylinders.append(c['Engine Information']['Engine Type'][index-3])
 	for o in cylinders:
 		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
 	return options
