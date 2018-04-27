@@ -95,7 +95,7 @@ def cylinder_options():
 	options = ""
 	cylinders= []
 	for c in cars:
-		if 'cylinder' not in c['Engine Information']['Engine Type']
+		if 'cylinder' in c['Engine Information']['Engine Type']
 			index=c['Engine Information']['Engine Type'].index('cylinder')
 			char=c['Engine Information']['Engine Type'][index-2]
 			if char not in cylinders:
