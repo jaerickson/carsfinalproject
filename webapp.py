@@ -101,8 +101,8 @@ def cylinder_options():
 			if char not in cylinders:
 				cylinders.append(c['Engine Information']['Engine Type'][index-2])
 	for o in cylinders:
-		if o == 0:
-			o = 10
+		if o == '0':
+			o = '10'
 			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
 		else:
 			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
