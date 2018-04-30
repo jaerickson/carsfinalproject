@@ -1,4 +1,3 @@
-import pymongo
 #import Flask-pymongo
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
@@ -6,7 +5,8 @@ from flask import render_template
 import pprint
 import os
 import json
-#from bson.objectid import ObjectId
+from bson.objectid import ObjectId
+import pymongo
 #from bson.objectid import ObjectId
 
 
