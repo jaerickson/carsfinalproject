@@ -18,7 +18,7 @@ app.debug = True #Change this to False for production
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 
-"""url = 'mongodb://{}:{}@{}:{}/{}'.format(
+url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
         os.environ["MONGO_PASSWORD"],
         os.environ["MONGO_HOST"],
@@ -26,7 +26,7 @@ oauth = OAuth(app)
         os.environ["MONGO_DBNAME"])
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
-collection = db['collection']"""
+collection = db['collection']
 
 
 github = oauth.remote_app(
