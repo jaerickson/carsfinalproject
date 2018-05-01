@@ -4,7 +4,6 @@ from flask import render_template
 import pprint
 import os
 import json
-mlab
 from bson.objectid import ObjectId
 import pymongo
 
