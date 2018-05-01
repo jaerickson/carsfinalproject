@@ -118,7 +118,7 @@ def forward_gears_options():
 			gears.append(str(c['Engine Information']['Number of Forward Gears']))
 			print(str(c['Engine Information']['Number of Forward Gears']))
 	for o in gears:
-		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + " forward gears" + '<br>')
+		options += Markup('<input type="radio" name="fuel" value=\"' + o + "\">" + o + " forward gears" + '<br>')
 	return options
 
    
