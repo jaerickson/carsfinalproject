@@ -4,6 +4,7 @@ from flask import render_template
 import pprint
 import os
 import json
+mlab
 from bson.objectid import ObjectId
 import pymongo
 
@@ -15,6 +16,7 @@ app.debug = True #Change this to False for production
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 
+
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
         os.environ["MONGO_USERNAME"],
         os.environ["MONGO_PASSWORD"],
@@ -24,6 +26,7 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
 collection = db['collection']
+
 
 
 github = oauth.remote_app(
@@ -54,7 +57,7 @@ def findcar():
 	log = False
 	if 'user_data' in session:
 		log = True
-	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options())
+	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options(), cylinder=cylinder_options(), forward_gears=forward_gears_options())
    
 @app.route('/account')
 def account():
@@ -88,48 +91,38 @@ def fuel_type_options():
 		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + '<br>')
 	return options
 
-# def cylinder_options():
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	options = ""
-# 	cylinders= []
-# 	for c in cars:
-# 		index=str((c['Engine Information']['Engine Type'].index('cylinder')-2)
-# 		if index not in cylinders:
-# 			cylinders.append(c['Engine Information']['Engine Type'][index])
-# 	for o in cylinders:
-# 		options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + '<br>')
-# 	return options
+def cylinder_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options = ""
+	cylinders= []
+	for c in cars:
+		if 'cylinder' in c['Engine Information']['Engine Type']:
+			index=c['Engine Information']['Engine Type'].index('cylinder')
+			char=c['Engine Information']['Engine Type'][index-2]
+			if char not in cylinders:
+				cylinders.append(c['Engine Information']['Engine Type'][index-2])
+	for o in cylinders:
+		if o == '0':
+			o = '10'
+			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+		else:
+			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+	return options
 
-# #way_range_options is finished
-# def way_range_options():
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	options = ""
-# 	s = []
-# 	min = c[0]['Fuel Information']['Highway mpg']
-# 	max = c[0]['Fuel Information']['Highway mpg']
-# 	for c in cars:
-# 		if c['Fuel Information']['Highway mpg'] is < min:
-# 			min =c['Fuel Information']['Highway mpg']
-# 		if c['Fuel Information']['Highway mpg'] is > max:
-# 			max =c['Fuel Information']['Highway mpg']
-# 	return str(min) + str(",") + str(max)
+def forward_gears_options():
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	options= ""
+	gears= []
+	for c in cars:
+		if str(c['Engine Information']['Number of Forward Gears']) not in gears:
+			gears.append(str(c['Engine Information']['Number of Forward Gears']))
+			print(str(c['Engine Information']['Number of Forward Gears']))
+	for o in gears:
+		options += Markup('<input type="radio" name="fuel" value=\"' + o + "\">" + o + " forward gears" + '<br>')
+	return options
 
-# #city_range_options is not finished
-# def city_range_options():
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	options = ""
-# 	s = []
-# 	min = c[0]['Fuel Information']['City mph']
-# 	max = c[0]['Fuel Information']['City mph']
-# 	for c in cars:
-# 		if c['Fuel Information']['City mph'] is < min:
-# 			min = c['Fuel Information']['City mph']
-# 		if c['Fuel Information']['City mph'] is > max:
-# 			max = c['Fuel Information']['City mph']
-# 	return str(min) + str(",") + str(max)
    
 @app.route('/login')
 def login():   
