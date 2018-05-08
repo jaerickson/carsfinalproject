@@ -8,6 +8,9 @@ p{
   text-align:center;
 
 }
+#user{
+	font-size: 50%;
+}
 
 form{
  font-family: serif;
