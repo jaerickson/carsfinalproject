@@ -127,8 +127,8 @@ def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, s
 	results=""
 	trans = request.args['vehicle']
 	print(request.args['vehicle'])
-	for r in cars:
-		if  
+	#for r in cars:
+	#	if  
 	
    
 @app.route('/login')
