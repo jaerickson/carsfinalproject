@@ -77,7 +77,7 @@ def manufacturers_options():
 		if c['Identification']['Make'] not in manufacturers:
 			manufacturers.append(c['Identification']['Make'])
 	for o in manufacturers:
-		options += Markup('<input type="checkbox" name="vehicle" value=\"' + o + "\">" + o + '<br>')
+		options += Markup('<input type="checkbox" name="q6" value=\"' + o + "\">" + o + '<br>')
 	return options
 
 
@@ -90,7 +90,7 @@ def fuel_type_options():
 		if c['Fuel Information']['Fuel Type'] not in fuels:
 			fuels.append(c['Fuel Information']['Fuel Type'])
 	for o in fuels:
-		options += Markup('<input type="checkbox" name="fuel" value=\"' + o + "\">" + o + '<br>')
+		options += Markup('<input type="checkbox" name="q11" value=\"' + o + "\">" + o + '<br>')
 	return options
 
 def cylinder_options():
@@ -107,9 +107,9 @@ def cylinder_options():
 	for o in cylinders:
 		if o == '0':
 			o = '10'
-			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + "\">" + o + " cylinders" + '<br>')
 		else:
-			options += Markup('<input type="radio" name="cylinder" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + "\">" + o + " cylinders" + '<br>')
 	return options
 
 def forward_gears_options():
@@ -121,7 +121,7 @@ def forward_gears_options():
 		if str(c['Engine Information']['Number of Forward Gears']) not in gears:
 			gears.append(str(c['Engine Information']['Number of Forward Gears']))
 	for o in gears:
-		options += Markup('<input type="radio" name="fuel" value=\"' + o + "\">" + o + " forward gears" + '<br>')
+		options += Markup('<input type="radio" name="q4" value=\"' + o + "\">" + o + " forward gears" + '<br>')
 	return options
 
 def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, size, highway_mpg, city_mpg, fuel):
