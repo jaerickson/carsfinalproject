@@ -117,11 +117,19 @@ def forward_gears_options():
 	for c in cars:
 		if str(c['Engine Information']['Number of Forward Gears']) not in gears:
 			gears.append(str(c['Engine Information']['Number of Forward Gears']))
-			print(str(c['Engine Information']['Number of Forward Gears']))
 	for o in gears:
 		options += Markup('<input type="radio" name="fuel" value=\"' + o + "\">" + o + " forward gears" + '<br>')
 	return options
 
+def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, size, highway_mpg, city_mpg, fuel):
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	results=""
+	trans = request.args['vehicle']
+	print(request.args['vehicle'])
+	for r in cars:
+		if  
+	
    
 @app.route('/login')
 def login():   
