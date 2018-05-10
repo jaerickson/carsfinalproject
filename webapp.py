@@ -57,7 +57,7 @@ def findcar():
 	if 'user_data' in session:
 		log = True
 	if 'vehicle' in request.args:
-		print(request.args['vehicle'][1])
+		print(request.args['q6'][1])
 		
 	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options(), cylinder=cylinder_options(), forward_gears=forward_gears_options())
    
