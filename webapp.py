@@ -56,7 +56,7 @@ def findcar():
 	log = False
 	if 'user_data' in session:
 		log = True
-	if 'vehicle' in request.args:
+	if 'q6' in request.args:
 		print("this is working")
 		print(request.args['q6'])
 		
