@@ -59,7 +59,7 @@ def findcar():
 	if 'q6' in request.args:
 		print("this is working")
 		dict = request.args.to_dict()
-		print(request.args['q6'])
+		print(request.args.getlist('q6'))
 		print(dict)
 		
 		
