@@ -36,11 +36,13 @@
         <li><p1 id="user" class="navbar-text">Github userid: {{ session['user_data']['login']}}</li>
 	{% endif %}
         <li>
+	<p1 id="user" class="navbar-text">
 	  {% if logged_in %}
 	  <a href="/logout" >Logout</a>
 	  {% else %}
 	  <a href="/login" >Login</a>
 	  {% endif %}
+	</p1>
 	</li>
       </ul>
     </div><!-- /.navbar-collapse -->
