@@ -76,6 +76,11 @@ def account():
 		for i in cars:
 			if i["identification"]["Classification"] == request.args['q1']:
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
+					hybrid = false
+					if request.args['q3'] == "true":
+						hybrid = true
+						if hybrid = i["Engine Information"]["hybrid"]:
+							
 	
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'], cars_results = )
 
@@ -135,12 +140,12 @@ def forward_gears_options():
 		options += Markup('<input type="radio" name="q4" value=\"' + o + "\">" + o + " forward gears" + '<br>')
 	return options
 
-def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, size, highway_mpg, city_mpg, fuel):
-	with open('cars.json') as cars_data:
-		cars = json.load(cars_data)
-	results=""
-	trans = request.args['q1']
-	print(request.args['q6'])
+# def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, size, highway_mpg, city_mpg, fuel):
+# 	with open('cars.json') as cars_data:
+# 		cars = json.load(cars_data)
+# 	results=""
+# 	trans = request.args['q1']
+# 	print(request.args['q6'])
 	#for r in cars:
 	#	if  
 	
