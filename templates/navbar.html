@@ -35,14 +35,15 @@
 	{% if logged_in %}
         <li><p1 id="user" class="navbar-text">Github userid: {{ session['user_data']['login']}}</li>
 	{% endif %}
-        <li>
+        
 	  {% if logged_in %}
-	  <a href="/logout" class="nav-tex">Logout</a>
+	<li>
+		<p1 id="user" class="navbar-text"><a href="/logout" >Logout</a></li>
 	  {% else %}
-	  <a href="/login" class="nav-tex">Login</a>
+		<p1 id="user" class="navbar-text"><a href="/login" >Login</a></li>
 	  {% endif %}
 	
-	</li>
+	
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
