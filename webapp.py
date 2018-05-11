@@ -68,9 +68,16 @@ def findcar():
 @app.route('/account')
 def account():
 	log = False
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
 	if 'user_data' in session:
-		log = True
-	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'] )
+		log = True'
+	if 'q1' in request.args:
+		for i in cars:
+			if i["identification"]["Classification"] == request.args['q1']:
+				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
+	
+	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'], cars_results = )
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
@@ -111,9 +118,9 @@ def cylinder_options():
 	for o in cylinders:
 		if o == '0':
 			o = '10'
-			options += Markup('<input type="radio" name="q2" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + "cylinder \">" + o + " cylinders" + '<br>')
 		else:
-			options += Markup('<input type="radio" name="q2" value=\"' + o + "\">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + "cylinder \">" + o + " cylinders" + '<br>')
 	return options
 
 def forward_gears_options():
@@ -132,8 +139,8 @@ def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, s
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	results=""
-	trans = request.args['vehicle']
-	print(request.args['vehicle'])
+	trans = request.args['q1']
+	print(request.args['q6'])
 	#for r in cars:
 	#	if  
 	
