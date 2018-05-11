@@ -11,37 +11,38 @@
  <form action="/account" id="questions">
   
   Select a transmission type<br>
-  <input type="radio" name="q1" > Automatic  <br>
-  <input type="radio" name="q1" > Manual  <br>
+  <input type="radio" name="q1" value="automatic"> Automatic  <br>
+  <input type="radio" name="q1" value="manual"> Manual  <br>
   <br>
   Select a minimum number of cylinders<br>
   {{ cylinder }}
-  <input type="radio" name="q2" value`="idk" > Don't Know<br>
+  <input type="radio" name="q2" value="idk" > Don't Know<br>
   <br>
   Would you like hybrid recommendations?<br>
-  <input type="radio" name="q3" > Yes<br>
-  <input type="radio" name="q3" > No<br>
+  <input type="radio" name="q3" value="true"> Yes<br>
+  <input type="radio" name="q3" value="false"> No<br>
   <br>
   Select a minimum number of forward gears<br>
   {{ forward_gears }}
   <br>
   Select your driveline preferences<br>
-  <input type="radio" name="q5" > Front Wheel Drive<br>
-  <input type="radio" name="q5" > Rear Wheel Drive<br>
-  <input type="radio" name="q5" > All Wheel Drive<br>
+  <input type="radio" name="q5" value="Front-wheel drive"> Front Wheel Drive<br>
+  <input type="radio" name="q5" value="Rear-wheel drive"> Rear Wheel Drive<br>
+  <input type="radio" name="q5" value="All-wheel drive"> All Wheel Drive<br>
+  <input type="radio" name="q5" value="Four-wheel drive"> Four Wheel Drive<br>
   <br>
   Select your preferred manufacturers<br>
   {{ manufacturers}}
   <br>
   Select your size preference<br>
-   <input type="radio" name="q8" > Large<br>
-  <input type="radio" name="q8" > Medium<br>
-  <input type="radio" name="q8" > Small<br>
+   <input type="radio" name="q8" value="large"> Large<br>
+  <input type="radio" name="q8" value="medium"> Medium<br>
+  <input type="radio" name="q8" value="small"> Small<br>
   <br>
   How important is a high mpg to you?<br>
-  <input type="radio" name="q9" > Very Important<br>
-  <input type="radio" name="q9" > A Little Important<br>
-  <input type="radio" name="q9" > Not Important<br>
+  <input type="radio" name="q9" value="v important> Very Important<br>
+  <input type="radio" name="q9" value="lil important"> A Little Important<br>
+  <input type="radio" name="q9" value="idc"> Not Important<br>
   <br>
   Select your fuel preferences<br>
   {{ fuel_type }}
