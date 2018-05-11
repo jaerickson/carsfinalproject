@@ -60,7 +60,8 @@ def findcar():
 		print("this is working")
 		dict = request.args.to_dict()
 		print(request.args['q6'])
-		print(request.args['q6'][1])
+		print(dict)
+		
 		
 	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options(), cylinder=cylinder_options(), forward_gears=forward_gears_options())
    
