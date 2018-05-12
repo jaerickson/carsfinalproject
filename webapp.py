@@ -74,12 +74,15 @@ def account():
 		log = True'
 	if 'q1' in request.args:
 		for i in cars:
-			if i["identification"]["Classification"] == request.args['q1']:
+			if i["Identification"]["Classification"] == request.args['q1']:
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
-					hybrid = false
-					if request.args['q3'] == "true":
-						hybrid = true
-						if hybrid = i["Engine Information"]["hybrid"]:
+					if i["Number of Forward Gears"] == request.args['q4']:
+						if i["Driveline"] == request.args['q5']:
+							
+# 					hybrid = false
+# 					if request.args['q3'] == "true":
+# 						hybrid = true
+# 						if hybrid = i["Hybrid"]:
 							
 	
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'], cars_results = )
@@ -106,7 +109,7 @@ def fuel_type_options():
 		if c['Fuel Information']['Fuel Type'] not in fuels:
 			fuels.append(c['Fuel Information']['Fuel Type'])
 	for o in fuels:
-		options += Markup('<input type="checkbox" name="q11" value=\"' + o + "\">" + o + '<br>')
+		options += Markup('<input type="checkbox" name="q10" value=\"' + o + "\">" + o + '<br>')
 	return options
 
 def cylinder_options():
