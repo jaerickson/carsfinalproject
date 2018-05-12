@@ -109,7 +109,7 @@ def fuel_type_options():
 		if c['Fuel Information']['Fuel Type'] not in fuels:
 			fuels.append(c['Fuel Information']['Fuel Type'])
 	for o in fuels:
-		options += Markup('<input type="checkbox" name="q10" value=\"' + o + "\">" + o + '<br>')
+		options += Markup('<input type="checkbox" name="q9" value=\"' + o + "\">" + o + '<br>')
 	return options
 
 def cylinder_options():
@@ -142,15 +142,6 @@ def forward_gears_options():
 	for o in gears:
 		options += Markup('<input type="radio" name="q4" value=\"' + o + "\">" + o + " forward gears" + '<br>')
 	return options
-
-# def get_cars(transmission, cylinders, hybrid, gears, driveline, manufacturers, size, highway_mpg, city_mpg, fuel):
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	results=""
-# 	trans = request.args['q1']
-# 	print(request.args['q6'])
-	#for r in cars:
-	#	if  
 	
    
 @app.route('/login')
