@@ -68,6 +68,7 @@ def findcar():
 @app.route('/account')
 def account():
 	log = False
+	num = 3
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
@@ -78,8 +79,7 @@ def account():
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
 					if i["Number of Forward Gears"] == request.args['q4']:
 						if i["Driveline"] == request.args['q5']:
-							
-	
+							num = 674677
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
 def manufacturers_options():
