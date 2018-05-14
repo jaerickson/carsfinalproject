@@ -72,17 +72,12 @@ def account():
 		cars = json.load(cars_data)
 	if 'user_data' in session:
 		log = True'
-	if 'q1' in request.args:
-		for i in cars:
-			if i["Identification"]["Classification"] == request.args['q1']:
-				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
-					if i["Number of Forward Gears"] == request.args['q4']:
-						if i["Driveline"] == request.args['q5']:
-							
-# 					hybrid = false
-# 					if request.args['q3'] == "true":
-# 						hybrid = true
-# 						if hybrid = i["Hybrid"]:
+# 	if 'q1' in request.args:
+# 		for i in cars:
+# 			if i["Identification"]["Classification"] == request.args['q1']:
+# 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
+# 					if i["Number of Forward Gears"] == request.args['q4']:
+# 						if i["Driveline"] == request.args['q5']:
 							
 	
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
