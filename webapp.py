@@ -79,6 +79,17 @@ def account():
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
 					if i["Number of Forward Gears"] == request.args['q4']:
 						if i["Driveline"] == request.args['q5']:
+							m = request.args.getlist('q6')
+							for d in m: 
+								if d == i["Identification"]["Make"]:
+									w = i["Dimensions"]["Width"] / 12
+									l = i["Dimensions"]["Length"] / 12
+									h = i["Dimensions"]["Height"] / 12
+									v = w*l*h
+									if (request.args['q7'] == "small" && v <= 130)||(request.args['q7'] == "medium" && (v > 130 && v < 160))||(request.args["q7'] == "large" && v > 160)         
+										
+								
+							
 							num = 674677
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
