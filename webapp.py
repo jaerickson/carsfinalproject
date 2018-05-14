@@ -71,7 +71,7 @@ def account():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
-		log = True'
+		log = True
 # 	if 'q1' in request.args:
 # 		for i in cars:
 # 			if i["Identification"]["Classification"] == request.args['q1']:
