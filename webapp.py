@@ -85,7 +85,7 @@ def account():
 # 						if hybrid = i["Hybrid"]:
 							
 	
-	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'], cars_results = )
+	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
