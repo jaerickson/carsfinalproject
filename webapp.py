@@ -69,6 +69,7 @@ def findcar():
 def account():
 	log = False
 	car = []
+	num = 3
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
