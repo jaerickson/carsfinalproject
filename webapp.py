@@ -87,7 +87,8 @@ def account():
 									h = i["Dimensions"]["Height"] / 12
 									v = w*l*h
 									if (request.args['q7'] == "small" && v <= 130)||(request.args['q7'] == "medium" && (v > 130 && v < 160))||(request.args["q7'] == "large" && v > 160):
-										num = 838
+										if i["Fuel Information"]["Fuel Type"] == request.args['q8']:
+											num = 838
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
 def manufacturers_options():
@@ -112,7 +113,7 @@ def fuel_type_options():
 		if c['Fuel Information']['Fuel Type'] not in fuels:
 			fuels.append(c['Fuel Information']['Fuel Type'])
 	for o in fuels:
-		options += Markup('<input type="checkbox" name="q9" value=\"' + o + "\">" + o + '<br>')
+		options += Markup('<input type="checkbox" name="q8" value=\"' + o + "\">" + o + '<br>')
 	return options
 
 def cylinder_options():
