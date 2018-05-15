@@ -81,14 +81,16 @@ def account():
 						if i["Driveline"] == request.args['q5']:
 							m = request.args.getlist('q6')
 							for d in m: 
-								if d == i["Identification"]["Make"]:
+								if i["Identification"]["Make"] == d:
 									w = i["Dimensions"]["Width"] / 12
 									l = i["Dimensions"]["Length"] / 12
 									h = i["Dimensions"]["Height"] / 12
 									v = w*l*h
 									#if (request.args['q7'] == "small" && v <= 130)||(request.args['q7'] == "medium" && (v > 130 && v < 160))||(request.args["q7'] == "large" && v > 160):
-									if i["Fuel Information"]["Fuel Type"] == request.args['q8']:
-										num = 838
+									f = request.args.getlist('q8')
+									for t in f:
+										if i["Fuel Information"]["Fuel Type"] == t:
+											num = 838
 	return render_template('account.html', loggedIn = log, username =  session['user_data']['login'])
 
 def manufacturers_options():
