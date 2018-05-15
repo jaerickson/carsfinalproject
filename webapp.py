@@ -68,7 +68,7 @@ def findcar():
 @app.route('/account')
 def account():
 	log = False
-	num = 3
+	car = []
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
@@ -86,7 +86,8 @@ def account():
 									l = i["Dimensions"]["Length"] / 12
 									h = i["Dimensions"]["Height"] / 12
 									v = w*l*h
-									if ((request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160)):
+									if (request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v 
+									>160):
 										f = request.args.getlist('q8')
 										for t in f:
 											if i["Fuel Information"]["Fuel Type"] == t:
