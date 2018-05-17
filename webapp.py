@@ -76,6 +76,7 @@ def account():
 	if 'user_data' in session:
 		log = True
 	if 'q1' in request.args:
+		string = "got this far"
 		for i in cars:
 			if i["Identification"]["Classification"] == request.args['q1']:
 				string = "ident"
