@@ -78,6 +78,7 @@ def account():
 	if 'q1' in request.args:
 		string = "got this far"
 		for i in cars:
+			string = "aaaa"
 			if i["Identification"]["Classification"] == request.args['q1']:
 				string = "ident"
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
