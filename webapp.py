@@ -145,9 +145,9 @@ def cylinder_options():
 	for o in cylinders:
 		if o == '0':
 			o = '10'
-			options += Markup('<input type="radio" name="q2" value=\"' + o + "cylinder \">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + " cylinder \">" + o + " cylinders" + '<br>')
 		else:
-			options += Markup('<input type="radio" name="q2" value=\"' + o + "cylinder \">" + o + " cylinders" + '<br>')
+			options += Markup('<input type="radio" name="q2" value=\"' + o + " cylinder \">" + o + " cylinders" + '<br>')
 	return options
 
 def forward_gears_options():
