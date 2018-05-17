@@ -70,6 +70,7 @@ def account():
 	log = False
 	car = []
 	num = 3
+	string = "failedat"
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
@@ -77,22 +78,29 @@ def account():
 	if 'q1' in request.args:
 		for i in cars:
 			if i["Identification"]["Classification"] == request.args['q1']:
+				string = "ident"
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
+					string = "Enginetype"
 					if i["Number of Forward Gears"] == request.args['q4']:
+						string = "numforewardgears"
 						if i["Driveline"] == request.args['q5']:
+							string = "driveline"
 							m = request.args.getlist('q6')
 							for d in m: 
+								string = "make"
 								if i["Identification"]["Make"] == d:
 									w = i["Dimensions"]["Width"] / 12
 									l = i["Dimensions"]["Length"] / 12
 									h = i["Dimensions"]["Height"] / 12
 									v = w*l*h
 									if (request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160):
+										string = "size"
 										f = request.args.getlist('q8')
 										for t in f:
+											string = "fueltype"
 											if i["Fuel Information"]["Fuel Type"] == t:
 												num = 838
-	return render_template('account.html', loggedIn = log, username =  num)
+	return render_template('account.html', loggedIn = log, username =  string)
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
