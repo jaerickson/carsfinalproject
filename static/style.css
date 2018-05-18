@@ -1,6 +1,5 @@
 body{
 	background-color:#92a8d1;
-/* 	border-style: dashed; */
 }
 
 p{
@@ -10,7 +9,7 @@ p{
 
 }
 p1{
-	font-size: 100%;
+	font-size: 500%;
 }
 
 form{
