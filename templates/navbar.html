@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div {% if active_tab == "home" %} class="navbar-header active" {% else %} class="navbar-header" {% endif %}>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/">Home Page</a>
