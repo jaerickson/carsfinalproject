@@ -85,9 +85,7 @@ def account():
 				string = "ident"
 				if request.args['q2'] in i["Engine Information"]["Engine Type"]:
 					string = "Enginetype"
-					print(i["Engine Information"]["Number of Forward Gears"])
-					print(request.args['q4'])
-					if i["Engine Information"]["Number of Forward Gears"] == int(request.args['q4']):
+					if i["Engine Information"]["Number of Forward Gears"] == request.args[int('q4')]:
 						string = "numforewardgears"
 						if i["Engine Information"]["Driveline"] == request.args['q5']:
 							string = "driveline"
