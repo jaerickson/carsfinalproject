@@ -2,41 +2,46 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" {% if active_tab == "home" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">CarSmart</a>
+      <a class="navbar-brand" href="/">Home Page</a>
     </div>
     <div class="navbar-header">
-      <button type="button" {% if active_tab == "find" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/find">Find a Car</a>
     </div>
 	{% if logged_in %}
 	  <div class="navbar-header">
-      <button type="button" {% if active_tab == "account" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/account">My Account</a>
+      <a class="navbar-brand" href="/account">Your Account</a>
     </div>
 	  {% endif %}
       
-      <ul class="navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
 	{% if logged_in %}
-        <li><p1 id="user" class="navbar-text">Github userid: {{ session['user_data']['login']}}</li>
+        <li><p class="navbar-text">Github userid: {{ session['user_data']['login']}}</li>
 	{% endif %}
         <li>
 	  {% if logged_in %}
-	    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/logout">Log Out</a>
+	  <a href="/logout">Logout</a>
 	  {% else %}
-	  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/login">Login</a>
+	  <a href="/login">Login</a>
 	  {% endif %}
-	
-			</li>
+	</li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
