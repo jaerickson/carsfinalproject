@@ -2,18 +2,18 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" {% if active_tab == "home" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/">CarSmart</a>
     </div>
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" {% if active_tab == "find" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/find">Find a Car</a>
     </div>
 	{% if logged_in %}
 	  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" {% if active_tab == "account" %} class="active" {% endif %} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/account">My Account</a>
     </div>
