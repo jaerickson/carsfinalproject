@@ -75,10 +75,9 @@ def account():
 		cars = json.load(cars_data)
 	if 'user_data' in session:
 		log = True
-	if 'q1' in request.args:
-		s = "got this far"
 	for i in cars:
 		s = "aaaa"
+		pprint(request.args['q1']
 		if i["Identification"]["Classification"] == request.args['q1']:
 			s = "ident"
 		if request.args['q2'] in i["Engine Information"]["Engine Type"]:
