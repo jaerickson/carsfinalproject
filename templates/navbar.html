@@ -1,18 +1,18 @@
- <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div {% if active_tab == "home" %} class="active"{% endif %}>
+    <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/">Home Page</a>
     </div>
     <div class="navbar-header">
-      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/find">Find a Car</a>
     </div>
 	{% if logged_in %}
 	  <div class="navbar-header">
-      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/account">Your Account</a>
     </div>
@@ -20,12 +20,12 @@
 	  <ul class="navbar-nav navbar-right">
       {% if logged_in %}
 	    <div class="navbar-header">
-        <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/logout">Log Out</a>
 	  {% else %}
 	  <div class="navbar-header">
-      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
       <a class="navbar-brand" href="/login">Login</a>
 	  {% endif %}
