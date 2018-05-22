@@ -1,12 +1,20 @@
 	  <nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 			  <div class="navbar-header">
-				  <a class="navbar-brand" href=".">AP Vocabulary Quizzes</a>
+				  <a class="navbar-brand" href=".">CarSmart</a>
 			  </div>
 			<ul class="nav navbar-nav">
 				  <li {% if active_tab == "home" %} class="active" {% endif %}><a href=".">Home</a></li>
-				  <li {% if active_tab == "lang" %} class="active" {% endif %}><a href="lang">AP Lang Practice</a></li>
-				  <li {% if active_tab == "chem" %} class="active" {% endif %}><a href="chem">AP Chem Practice</a></li>
+				  <li {% if active_tab == "find" %} class="active" {% endif %}><a href="find">Find a Car</a></li>
+				{% if logged_in %}
+				  <li {% if active_tab == "account" %} class="active" {% endif %}><a href="account">Your Account</a></li>
+				{% endif %}
+				<ul class="navbar-nav navbar-right">
+				{% if logged_in %}	
+					<li><a href="/logout">Log Out</a></li>
+				{% else %}
+					<li><a class="navbar-brand" href="/login">Log In</a></li>
+				{% endif %}
 			</ul>
 		  </div>
 	  </nav>
