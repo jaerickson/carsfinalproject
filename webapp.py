@@ -65,16 +65,16 @@ def findcar():
 		
 	return render_template('findacar.html', loggedIn = log, manufacturers = manufacturers_options(), fuel_type = fuel_type_options(), cylinder=cylinder_options(), forward_gears=forward_gears_options())
    
-# @app.route('/account')
-# def account():
-# 	log = False
-# 	car = []
-# 	num = 3
-# 	s = "failedat"
-# 	with open('cars.json') as cars_data:
-# 		cars = json.load(cars_data)
-# 	if 'user_data' in session:
-# 		log = True
+@app.route('/account')
+def account():
+	log = False
+	car = []
+	num = 3
+	s = "failedat"
+	with open('cars.json') as cars_data:
+		cars = json.load(cars_data)
+	if 'user_data' in session:
+		log = True
 # 	if 'q1' in request.args:
 # 		s = "got this far"
 # 		for i in cars:
