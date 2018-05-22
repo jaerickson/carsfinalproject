@@ -1,21 +1,36 @@
-	  <nav class="navbar navbar">
-		  <div class="container-fluid">
-			  <div class="navbar-header">
-				  <a class="navbar-brand" href=".">CarSmart</a>
-			  </div>
-			<ul class="nav navbar-nav">
-				  <li {% if active_tab == "home" %} class="active" {% endif %}><a href=".">Home</a></li>
-				  <li {% if active_tab == "find" %} class="active" {% endif %}><a href="find">Find a Car</a></li>
-				{% if logged_in %}
-				  <li {% if active_tab == "account" %} class="active" {% endif %}><a href="account">Your Account</a></li>
-				{% endif %}
-				<ul class="navbar-nav navbar-right">
-				{% if logged_in %}	
-					<li><a href="/logout">Log Out</a></li>
-				{% else %}
-					<li><a class="navbar-brand" href="/login">Log In</a></li>
-				{% endif %}
-				</ul>
-			</ul>
-		  </div>
-	  </nav>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="/">Home Page</a>
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="/find">Find a Car</a>
+    </div>
+	{% if logged_in %}
+	  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="/account">Your Account</a>
+    </div>
+	  {% endif %}
+	  <ul class="navbar-nav navbar-right">
+      {% if logged_in %}
+	    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="/logout">Log Out</a>
+	  {% else %}
+	  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="/login">Log In</a>
+	  {% endif %}
+	</li>
+      </ul>
+    </div>
+  </div>
+</nav>
