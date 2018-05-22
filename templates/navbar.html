@@ -1,36 +1,12 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/">Home Page</a>
-    </div>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/find">Find a Car</a>
-    </div>
-	{% if logged_in %}
-	  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/account">Your Account</a>
-    </div>
-	  {% endif %}
-	  <ul class="navbar-nav navbar-right">
-      {% if logged_in %}
-	    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/logout">Log Out</a>
-	  {% else %}
-	  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="/login">Log In</a>
-	  {% endif %}
-	</li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	  <nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+			  <div class="navbar-header">
+				  <a class="navbar-brand" href=".">AP Vocabulary Quizzes</a>
+			  </div>
+			<ul class="nav navbar-nav">
+				  <li {% if active_tab == "home" %} class="active" {% endif %}><a href=".">Home</a></li>
+				  <li {% if active_tab == "lang" %} class="active" {% endif %}><a href="lang">AP Lang Practice</a></li>
+				  <li {% if active_tab == "chem" %} class="active" {% endif %}><a href="chem">AP Chem Practice</a></li>
+			</ul>
+		  </div>
+	  </nav>
