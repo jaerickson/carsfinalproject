@@ -88,18 +88,18 @@ def account():
 			if i["Engine Information"]["Driveline"] == request.args['q5']:
 				s = "driveline"
 			m = request.args.getlist('q6')
-				for d in m: 
-					s = "make"
-					if i["Identification"]["Make"] == d:
-					w = i["Dimensions"]["Width"] / 12
-					l = i["Dimensions"]["Length"] / 12
-					h = i["Dimensions"]["Height"] / 12
-					v = w*l*h
+			for d in m: 
+				s = "make"
+				if i["Identification"]["Make"] == d:
+				w = i["Dimensions"]["Width"] / 12
+				l = i["Dimensions"]["Length"] / 12
+				h = i["Dimensions"]["Height"] / 12
+				v = w*l*h
 			if (request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160):
-					s = "size"
-					f = request.args.getlist('q8')
-					for t in f:
-					string = "fueltype"
+				s = "size"
+			f = request.args.getlist('q8')
+			for t in f:
+				s = "fueltype"
 			if i["Fuel Information"]["Fuel Type"] == t:
 				num = 838
 	return render_template('account.html', loggedIn = log, username =  s)
