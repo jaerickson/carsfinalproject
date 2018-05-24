@@ -78,13 +78,13 @@ def account():
 	for i in cars:
 		s = "aaaa"
 		pprint(request.args['q1'])
-		if i["Identification"]["Classification"] == request.args['q1']:
+		if (val is not None) and (i["Identification"]["Classification"] == request.args['q1']):
 			s = "ident"
-		if request.args['q2'] in i["Engine Information"]["Engine Type"]:
+		if (val is not None) and (request.args['q2'] in i["Engine Information"]["Engine Type"]):
 			s = "Enginetype"
-		if i["Engine Information"]["Number of Forward Gears"] == int(request.args['q4']):
+		if (val is not None) and (i["Engine Information"]["Number of Forward Gears"] == int(request.args['q4'])):
 			s = "numforewardgears"
-		if i["Engine Information"]["Driveline"] == request.args['q5']:
+		if (val is not None) and (i["Engine Information"]["Driveline"] == request.args['q5']):
 			s = "driveline"
 		m = request.args.getlist('q6')
 		for d in m: 
@@ -94,7 +94,7 @@ def account():
 				l = i["Dimensions"]["Length"] / 12
 				h = i["Dimensions"]["Height"] / 12
 				v = w*l*h
-		if (request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160):
+		if (val is not None) and ((request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160)):
 			s = "size"
 		f = request.args.getlist('q8')
 		for t in f:
