@@ -19,11 +19,11 @@
 	  {% endif %}
 	  <ul class="navbar-nav navbar-right">
       {% if logged_in %}
-		<p id="user" class="navbar-text">Github userid: {{ session['user_data']['login']}}
+		<p id="user" class="navbar-text">User: {{ session['user_data']['login']}}
 	    <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
       </button>
-      <a class="navbar-brand" href="/logout">Log Out</a>
+      <a class="navbar-brand" href="/logout">Log Out</a> 
 	  {% else %}
 	  <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
