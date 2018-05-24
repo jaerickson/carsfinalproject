@@ -78,13 +78,15 @@ def account():
 	for i in cars:
 		s = "aaaa"
 		pprint(request.args['q1'])
-		if (val is not None) and (i["Identification"]["Classification"] == request.args['q1']):
+		if (val is not None) and (i["Identification"]["Classification"] not == request.args['q1']):
 			s = "ident"
-		if (val is not None) and (request.args['q2'] in i["Engine Information"]["Engine Type"]):
+			continue
+		if (val is not None) and (request.args['q2'] not in i["Engine Information"]["Engine Type"]):
 			s = "Enginetype"
-		if (val is not None) and (i["Engine Information"]["Number of Forward Gears"] == int(request.args['q4'])):
+			continue
+		if (val is not None) and (i["Engine Information"]["Number of Forward Gears"] not == int(request.args['q4'])):
 			s = "numforewardgears"
-		if (val is not None) and (i["Engine Information"]["Driveline"] == request.args['q5']):
+		if (val is not None) and (i["Engine Information"]["Driveline"] not == request.args['q5']):
 			s = "driveline"
 		m = request.args.getlist('q6')
 		for d in m: 
