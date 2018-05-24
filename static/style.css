@@ -35,3 +35,10 @@ img{
     width: 40%;
 }
 
+navbar-nav navbar-text{
+	  font-family: serif;
+	font-size: 200%;
+	color: #285783;
+  text-align:center;
+}
+	
