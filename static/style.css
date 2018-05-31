@@ -2,9 +2,6 @@ body{
 	background-color:#E1EFFC;
 }
 
-a{
-	color: #C4E3F8;
-}
 
 p{
 	font-size: 200%;
@@ -19,6 +16,7 @@ form{
 
 div{
 	background-color: #3E0108;
+	text-color: color: #C4E3F8;
 }
 
 #home{
