@@ -78,7 +78,7 @@ def account():
 		log = True
 		print(session['user_data'])
 		#session
-		rets = collection()
+		#rets = collection()
 	pprint.pprint(request.args)
 	for i in cars:
 		s = "aaaa"
