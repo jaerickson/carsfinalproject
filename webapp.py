@@ -103,26 +103,6 @@ def account():
 					v = w*l*h
 					if ('q7' in request.args) and ((request.args['q7'] != "small" and v > 130) or (request.args['q7'] != "medium" and v < 130 or v > 160) or (request.args['q7'] != "large" and v <160)):
 						continue
-		if (val is not None) and (i["Identification"]["Classification"] != request.args['q1']):
-			s = "ident"
-			continue
-		if (val is not None) and (request.args['q2'] not in i["Engine Information"]["Engine Type"]):
-			s = "Enginetype"
-			continue
-		if (val is not None) and (i["Engine Information"]["Number of Forward Gears"] != int(request.args['q4'])):
-			s = "numforewardgears"
-		if (val is not None) and (i["Engine Information"]["Driveline"] != request.args['q5']):
-			s = "driveline"
-		m = request.args.getlist('q6')
-		for d in m: 
-			s = "make"
-			if i["Identification"]["Make"] == d:
-				w = i["Dimensions"]["Width"] / 12
-				l = i["Dimensions"]["Length"] / 12
-				h = i["Dimensions"]["Height"] / 12
-				v = w*l*h
-		if (val is not None) and ((request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160)):
-			s = "size"
 		f = request.args.getlist('q8')
 		for t in f:
 			s = "fueltype"
