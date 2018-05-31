@@ -79,7 +79,13 @@ def account():
 		print("it got here g ")
 		print(session['user_data']['login'])
 		#session
+		username = session['user_data']['login']
 		#rets = collection()
+		if collection.findOne(username) is not None:
+			#rets = collection.
+		
+	
+	
 	pprint.pprint(request.args)
 	for i in cars:
 		s = "aaaa"
