@@ -1,6 +1,5 @@
 body{
 	background-color:#E1EFFC;
-	margin-left: 100px;
 }
 
 a{
@@ -18,11 +17,11 @@ form{
   	font-family: serif;
 	align="center";
 	font-size: 150%;
+	margin-left: 100px;
 }
 
 div{
 	background-color: #3E0108;
-	margin-left: -100px;
 }
 
 #home{
