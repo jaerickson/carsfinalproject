@@ -114,7 +114,7 @@ def account():
 	print(car)
 	
 	if len(car) > 0:
-		sets = "" + car
+		sets = str(car)
 		ret = "Here are the results from your quiz: "  + sets
 	else: 
 		ret = "There were no cars that matched your requirements"
