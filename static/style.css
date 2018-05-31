@@ -17,7 +17,7 @@ form{
   	font-family: serif;
 	align="center";
 	margin-left: 100px;
-	margin-bottom: 75px;
+	font-size: 200%;
 }
 
 div{
@@ -25,7 +25,6 @@ div{
 }
 
 #home{
-	 
     	text-align: center;
     	color: #285783;
 }
