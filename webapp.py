@@ -103,7 +103,6 @@ def account():
 					v = w*l*h
 					if ('q7' in request.args) and ((request.args['q7'] != "small" and v > 130) or (request.args['q7'] != "medium" and v < 130 or v > 160) or (request.args['q7'] != "large" and v <160)):
 						continue
-		pprint(request.args['q1'])
 		if (val is not None) and (i["Identification"]["Classification"] != request.args['q1']):
 			s = "ident"
 			continue
