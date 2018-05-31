@@ -102,7 +102,7 @@ def account():
 # 					string = "fueltype"
 # 			if i["Fuel Information"]["Fuel Type"] == t:
 # 				num = 838
-# 	return render_template('account.html', loggedIn = log, username =  string)
+	return render_template('account.html', loggedIn = log)#, username =  string)
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
