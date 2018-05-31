@@ -76,6 +76,7 @@ def account():
 	
 	if 'user_data' in session:
 		log = True
+		print("it got here g ")
 		print(session['user_data'])
 		#session
 		#rets = collection()
