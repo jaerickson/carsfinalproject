@@ -83,6 +83,7 @@ def account():
 		#rets = collection()
 		if db.find_One(username) != None:
 			print("it got herererererere")
+			rets = db.find(username)
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
