@@ -84,6 +84,7 @@ def account():
 		if db.find_One(username) != None:
 			print("it got herererererere")
 			rets = db.find(username)
+	print("wow I wished this would work")
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
@@ -116,7 +117,7 @@ def account():
 		car.append(name)
 	print("god help me")
 	print(car)
-	
+	ret = " "
 	if len(car) > 0:
 		sets = str(car)
 		ret = "Here are the results from your quiz: "  + sets
