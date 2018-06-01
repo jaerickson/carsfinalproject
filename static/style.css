@@ -34,6 +34,10 @@ div{
   color: #E1EFFC;
 }
 
+.navbar-default .navbar-brand:hover {
+  color: #285783;
+}
+
 
 img{
 	display: block;
