@@ -86,7 +86,7 @@ def account():
 		
 	
 	
-	pprint.pprint(request.args)
+	#pprint.pprint(request.args)
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
