@@ -82,11 +82,7 @@ def account():
 		username = session['user_data']['login']
 		#rets = collection()
 		if collection.findOne(username) != None:
-			#rets = collection.
-		
-	
-	
-	#pprint.pprint(request.args)
+			print("it got herererererere")
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
