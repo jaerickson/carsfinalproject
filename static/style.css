@@ -30,8 +30,8 @@ div{
 	margin-left: 100px;
 }
 
-p a{
-	color: #285783;
+.navbar-default .navbar-brand {
+  color: white;
 }
 
 
