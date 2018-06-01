@@ -126,10 +126,7 @@ def account():
 		
 	if ret != " ":
 		if 'user_data' in session:
-			if collection.find_one(username) != None:
-				collection.find_one_and_replace(username,rets)
-			else:
-				collection.insert_one({username,rets})
+			collection.update_one({username},{$set:{username,rets}},{upsert:true})
 			
 	print("it actually got here")
 	return render_template('account.html', loggedIn = log, username =  rets, cars_results = ret)
