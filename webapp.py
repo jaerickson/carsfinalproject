@@ -81,7 +81,7 @@ def account():
 		#session
 		username = session['user_data']['login']
 		#rets = collection()
-		if collection.findOne(username) != None:
+		if db.findOne(username) != None:
 			print("it got herererererere")
 	for i in cars:
 		s = "aaaa"
