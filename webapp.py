@@ -81,7 +81,7 @@ def account():
 		#session
 		username = session['user_data']['login']
 		#rets = collection()
-		if collection.findOne(username) is not None:
+		if collection.findOne(username) != None:
 			#rets = collection.
 		
 	
