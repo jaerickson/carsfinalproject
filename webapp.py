@@ -123,6 +123,14 @@ def account():
 		ret = "Here are the results from your quiz: "  + sets
 	else: 
 		ret = "There were no cars that matched your requirements"
+		
+	if ret != " ":
+		if 'user_data' in session:
+			if collection.find_one(username) != None:
+				collection.find_one_and_replace(username,rets)
+			else:
+				collection.insert_one({username,rets})
+			
 	print("it actually got here")
 	return render_template('account.html', loggedIn = log, username =  rets, cars_results = ret)
 
