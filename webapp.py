@@ -81,7 +81,7 @@ def account():
 		#session
 		username = session['user_data']['login']
 		#rets = collection()
-		if db.find_One(username) != None:
+		if db.findOne(username) != None:
 			print("it got herererererere")
 			rets = db.find(username)
 	print("wow I wished this would work")
