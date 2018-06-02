@@ -24,13 +24,13 @@ div{
 #home{
     	text-align: center;
     	color: #285783;
-	margin-top: 150px;
+	margin-top: 120px;
 }
 
 #else{
     	color: #285783;
 	margin-left: 100px;
-	margin-top: 150px;
+	margin-top: 120px;
 }
 
 .navbar-default .navbar-brand {
