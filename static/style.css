@@ -1,6 +1,5 @@
 body{
 	background-color:#E1EFFC;
-	margin-top: 100px;
 	margin-bottom: 100px;
 }
 
@@ -25,11 +24,13 @@ div{
 #home{
     	text-align: center;
     	color: #285783;
+	margin-top: 150px;
 }
 
 #else{
     	color: #285783;
 	margin-left: 100px;
+	margin-top: 150px;
 }
 
 .navbar-default .navbar-brand {
