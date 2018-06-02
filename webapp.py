@@ -71,38 +71,63 @@ def account():
 	car = []
 	num = 3
 	s = "failedat"
+	rets = "AAAAAA"
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
 		log = True
-# 	if 'q1' in request.args:
-# 		s = "got this far"
-# 		for i in cars:
-# 			s = "aaaa"
-# 			if i["Identification"]["Classification"] == request.args['q1']:
-# 				s = "ident"
-# 			if request.args['q2'] in i["Engine Information"]["Engine Type"]:
-# 				s = "Enginetype"
-# 			if i["Engine Information"]["Number of Forward Gears"] == int(request.args['q4']):
-# 				s = "numforewardgears"
-# 			if i["Engine Information"]["Driveline"] == request.args['q5']:
-# 				s = "driveline"
-# 			m = request.args.getlist('q6')
-# 				for d in m: 
-# 					s = "make"
-# 					if i["Identification"]["Make"] == d:
-# 					w = i["Dimensions"]["Width"] / 12
-# 					l = i["Dimensions"]["Length"] / 12
-# 					h = i["Dimensions"]["Height"] / 12
-# 					v = w*l*h
-# 			if (request.args['q7'] == "small" and v <= 130) or (request.args['q7'] == "medium" and v > 130 and v < 160) or (request.args['q7'] == "large" and v >160):
-# 					s = "size"
-# 					f = request.args.getlist('q8')
-# 					for t in f:
-# 					string = "fueltype"
-# 			if i["Fuel Information"]["Fuel Type"] == t:
-# 				num = 838
-	return render_template('account.html', loggedIn = log)#, username =  string)
+		print("it got here g ")
+		print(session['user_data']['login'])
+		#session
+		username = session['user_data']['login']
+		#rets = collection()
+		if collection.find_one(username) != None:
+			print("it got herererererere")
+			rets = collection.find(username)
+	print("wow I wished this would work")
+	for i in cars:
+		s = "aaaa"
+		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
+			continue
+		if ('q2' in request.args) and (request.args['q2'] not in i["Engine Information"]["Engine Type"]):
+			continue
+		if ('q4' in request.args) and (i["Engine Information"]["Number of Forward Gears"] != int(request.args['q4'])):
+			continue
+		#print(request.args['q5'])
+		#print(i["Engine Information"]["Driveline"])
+		if ('q5' in request.args) and (i["Engine Information"]["Driveline"] != request.args['q5']):
+			continue
+		if 'q6' in request.args:
+			m = request.args.getlist('q6')
+			for d in m: 
+				s = "make"
+				if i["Identification"]["Make"] == d:
+					w = i["Dimensions"]["Width"] / 12
+					l = i["Dimensions"]["Length"] / 12
+					h = i["Dimensions"]["Height"] / 12
+					v = w*l*h
+					if ('q7' in request.args) and ((request.args['q7'] != "small" and v > 130) or (request.args['q7'] != "medium" and v < 130 or v > 160) or (request.args['q7'] != "large" and v <160)):
+						continue
+		f = request.args.getlist('q8')
+		for t in f:
+			s = "fueltype"
+			if i["Fuel Information"]["Fuel Type"]!= t:
+				continue
+		name = "" + i["Identification"]["ID"]
+		car.append(name)
+	print("god help me")
+	print(car)
+	ret = " "
+	if len(car) > 0:
+		sets = str(car)
+		ret = "Here are the results from your quiz: "  + sets
+	else: 
+		ret = "There were no cars that matched your requirements"
+# 	if ret != " ":
+# 		if 'user_data' in session:
+# 			collection.update_one({$eq:username},{$set:{username,ret}},{upsert:true})
+# 	print("it actually got here")
+	return render_template('account.html', loggedIn = log, username =  rets, cars_results = ret)
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
