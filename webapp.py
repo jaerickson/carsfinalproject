@@ -120,7 +120,7 @@ def account():
 	ret = " "
 	if len(car) > 0:
 		sets = str(car)
-		ret = "Here are the results from your quiz: "  + sets
+		ret = "Here are the results from your quiz: "  + str(sets)
 	else: 
 		ret = "There were no cars that matched your requirements"
 	if ret != " ":
