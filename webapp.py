@@ -125,7 +125,7 @@ def account():
 		ret = "There were no cars that matched your requirements"
 	if ret != " ":
 		if 'user_data' in session:
-			collection.update_one({username: {"$exists": True}},{"$set":{username,ret}},upsert=True)
+			collection.update_one({username: {"$exists": True}},{"$set":{username,str(ret)}},upsert=True)
 			print("it actually got here")
 	return render_template('account.html', loggedIn = log, username =  rets, cars_results = ret)
 
