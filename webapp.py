@@ -71,7 +71,7 @@ def account():
 	car = []
 	num = 3
 	s = "failedat"
-	rets = "AAAAAA"
+	rets = "No saved data"
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
@@ -81,7 +81,7 @@ def account():
 		#session
 		username = session['user_data']['login']
 		#rets = collection()
-		if collection.find_one(username) != None:
+		if collection.find_one(username) is not None:
 			print("it got herererererere")
 			rets = collection.find(username)
 	print("wow I wished this would work")
