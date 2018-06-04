@@ -119,10 +119,11 @@ def account():
 	#print(car)
 	ret = " "
 	print(request.args)
+	
 	if len(car) > 0 and request.args:
 		sets = str(car)
 		ret = "Here are the results from your quiz: "  + str(sets)
-	else: 
+	else if request.args: 
 		ret = "There were no cars that matched your requirements"
 	if ret != " ":
 		if 'user_data' in session:
