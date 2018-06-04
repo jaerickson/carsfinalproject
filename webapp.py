@@ -79,7 +79,7 @@ def account():
 		print("it got here g ")
 		print(session['user_data']['login'])
 		username = session['user_data']['login']
-		print(str(collection.find_one(username)0 + "thiss")
+		print(str(collection.find_one(username)) + "thiss")
 		if collection.find_one(username) is not None:
 			print("it got herererererere")
 			rets = collection.find(username)
