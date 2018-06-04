@@ -82,7 +82,7 @@ def account():
 		print(str({username:{"$exists": True}}) + "thiss")
 		if collection.find_one({username:{"$exists": True}}) is not None:
 			print("it got herererererere")
-			rets = collection.find({username:{"$exists": True}})
+			rets = collection.find_one({username:{"$exists": True}})
 	
 	for i in cars:
 		s = "aaaa"
