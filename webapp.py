@@ -81,6 +81,7 @@ def account():
 		#session
 		username = session['user_data']['login']
 		#rets = collection()
+		print(collection.find_one(username))
 		if collection.find_one(username) is not None:
 			print("it got herererererere")
 			rets = collection.find(username)
