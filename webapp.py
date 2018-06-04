@@ -115,9 +115,10 @@ def account():
 				continue
 		name = "" + i["Identification"]["ID"]
 		car.append(name)
-	print("god help me")
-	print(car)
+	#print("god help me")
+	#print(car)
 	ret = " "
+	print(request.args)
 	if len(car) > 0:
 		sets = str(car)
 		ret = "Here are the results from your quiz: "  + str(sets)
@@ -126,7 +127,6 @@ def account():
 	if ret != " ":
 		if 'user_data' in session:
 			collection.update_one({username: {"$exists": True}},{"$set":{username:str(ret)}},upsert=True)
-			print("it actually got here")
 	return render_template('account.html', loggedIn = log, username =  rets, cars_results = ret)
 
 def manufacturers_options():
