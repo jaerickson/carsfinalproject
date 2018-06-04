@@ -57,7 +57,7 @@ def findcar():
 	if 'user_data' in session:
 		log = True
 	if 'q6' in request.args:
-		print("this is working")
+		#print("this is working")
 		dict = request.args.to_dict()
 		print(request.args.getlist('q6'))
 		print(dict)
@@ -78,14 +78,12 @@ def account():
 		log = True
 		print("it got here g ")
 		print(session['user_data']['login'])
-		#session
 		username = session['user_data']['login']
-		#rets = collection()
-		print(collection.find_one(username))
+		print(str(collection.find_one(username)0 + "thiss")
 		if collection.find_one(username) is not None:
 			print("it got herererererere")
 			rets = collection.find(username)
-	print("wow I wished this would work")
+	
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
