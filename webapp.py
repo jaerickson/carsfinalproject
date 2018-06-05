@@ -105,13 +105,16 @@ def account():
 		car.append(name)
 	for i in car:
 		s += i + ", "
-	r = s
+	if len(car)==0):
+		r = "We're sorry, we could not find any cars that matched what you were looking for"
+	else:
+		r = s
 	if 'user_data' in session:
 		log = True
 		username = session['user_data']['login']
 		if collection.find_one({username:{"$exists": True}}) is not None:
 			returns = collection.find_one({username:{"$exists": True}})[username]
-			t = s
+			t = r
 		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
 	return render_template('account.html', loggedIn = log, new_results =  r, prev_results = returns)
 
