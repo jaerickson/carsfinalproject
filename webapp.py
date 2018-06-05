@@ -103,7 +103,7 @@ def account():
 		h = i["Dimensions"]["Height"] / 12
 		v = w*l*h
 		if ('q7' in request.args) and ((request.args['q7'] != "small" and v < 130) or (request.args['q7'] != "medium" and v > 130 or v < 160) or (request.args['q7'] != "large" and v > 160)):
-						continue
+			continue
 		if 'q8' in request.args:
 			f = request.args.getlist('q8')
 			for t in f:
@@ -113,7 +113,7 @@ def account():
 		name = "" + i["Identification"]["ID"]
 		car.append(name)
 	#print("god help me")
-	#print(car)
+	print(car)
 	ret = " "
 	print(request.args)
 	
