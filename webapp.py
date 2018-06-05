@@ -72,6 +72,7 @@ def account():
 	returns = ""
 	r="There were no cars that matched your requests, we apologize."
 	s=""
+	t=""
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	for i in cars:
@@ -105,9 +106,7 @@ def account():
 		car.append(name)
 	for i in car:
 		s += i + ", "
-	if len(car)==0:
-		r = "We're sorry, we could not find any cars that matched what you were looking for"
-	else:
+	if len(car)>0:
 		r = s
 	if 'user_data' in session:
 		log = True
