@@ -90,26 +90,26 @@ def account():
 			continue
 		if ('q4' in request.args) and (i["Engine Information"]["Number of Forward Gears"] != int(request.args['q4'])):
 			continue
-		#print(request.args['q5'])
-		#print(i["Engine Information"]["Driveline"])
 		if ('q5' in request.args) and (i["Engine Information"]["Driveline"] != request.args['q5']):
 			continue
 		if 'q6' in request.args:
 			m = request.args.getlist('q6')
 			for d in m: 
 				s = "make"
-				if i["Identification"]["Make"] == d:
-					w = i["Dimensions"]["Width"] / 12
-					l = i["Dimensions"]["Length"] / 12
-					h = i["Dimensions"]["Height"] / 12
-					v = w*l*h
-					if ('q7' in request.args) and ((request.args['q7'] != "small" and v > 130) or (request.args['q7'] != "medium" and v < 130 or v > 160) or (request.args['q7'] != "large" and v <160)):
+				if i["Identification"]["Make"] != d:
+					continue
+		w = i["Dimensions"]["Width"] / 12
+		l = i["Dimensions"]["Length"] / 12
+		h = i["Dimensions"]["Height"] / 12
+		v = w*l*h
+		if ('q7' in request.args) and ((request.args['q7'] != "small" and v < 130) or (request.args['q7'] != "medium" and v > 130 or v < 160) or (request.args['q7'] != "large" and v > 160)):
 						continue
-		f = request.args.getlist('q8')
-		for t in f:
-			s = "fueltype"
-			if i["Fuel Information"]["Fuel Type"]!= t:
-				continue
+		if 'q8' in request.args:
+			f = request.args.getlist('q8')
+			for t in f:
+				s = "fueltype"
+				if i["Fuel Information"]["Fuel Type"]!= t:
+					continue
 		name = "" + i["Identification"]["ID"]
 		car.append(name)
 	#print("god help me")
