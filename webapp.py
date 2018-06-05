@@ -112,14 +112,16 @@ def account():
 		car.append(name)
 	r=""
 	s=""
+	t=""
 	if len(car) > 0:
 		for i in car:
 			s += i + ", "
-		r = "Here are the results from your previouse quiz on : "  + s
+		r = "Here are the results from today's quiz: "  + s
 	else:
 		r = "There were no cars that matched your requirements"
 	if 'user_data' in session:
-		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(r)}},upsert=True)
+		t = "Here are the results from your quiz on : "  + s
+		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
 	return render_template('account.html', loggedIn = log, username =  returns, cars_results = r)
 
 def manufacturers_options():
