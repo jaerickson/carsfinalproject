@@ -70,7 +70,7 @@ def account():
 	log = False
 	car = []
 	returns = ""
-	r=""
+	r="5"
 	s=""
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
