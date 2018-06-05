@@ -111,7 +111,7 @@ def account():
 		username = session['user_data']['login']
 		if collection.find_one({username:{"$exists": True}}) is not None:
 			returns = username + ": " + collection.find_one({username:{"$exists": True}})[username]
-			t = "Here are the results from your quiz on : "  + s
+			t = "Here are the results from your previous quiz: "  + s
 		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
 	return render_template('account.html', loggedIn = log, new_results =  r, prev_results = returns)
 
