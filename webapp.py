@@ -75,7 +75,6 @@ def account():
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	for i in cars:
-		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
 			continue
 		if ('q2' in request.args) and (request.args['q2'] not in i["Engine Information"]["Engine Type"]):
@@ -89,7 +88,6 @@ def account():
 		if 'q6' in request.args:
 			m = request.args.getlist('q6')
 			for d in m: 
-				s = "make"
 				if i["Identification"]["Make"] != d:
 					continue
 		w = i["Dimensions"]["Width"] / 12
@@ -101,7 +99,6 @@ def account():
 		if 'q8' in request.args:
 			f = request.args.getlist('q8')
 			for t in f:
-				s = "fueltype"
 				if i["Fuel Information"]["Fuel Type"]!= t:
 					continue
 		name = "" + i["Identification"]["ID"]
