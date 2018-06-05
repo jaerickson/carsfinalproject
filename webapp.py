@@ -73,11 +73,6 @@ def account():
 	returns = ""
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
-	if 'user_data' in session:
-		log = True
-		username = session['user_data']['login']
-		if collection.find_one({username:{"$exists": True}}) is not None:
-			returns = username + ": " + collection.find_one({username:{"$exists": True}})[username]
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
@@ -112,7 +107,6 @@ def account():
 		car.append(name)
 	r=""
 	s=""
-	t=""
 	if len(car) > 0:
 		for i in car:
 			s += i + ", "
@@ -120,9 +114,13 @@ def account():
 	else:
 		r = "There were no cars that matched your requirements"
 	if 'user_data' in session:
-		t = "Here are the results from your quiz on : "  + s
-		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
-	return render_template('account.html', loggedIn = log, username =  returns, cars_results = r)
+		log = True
+		username = session['user_data']['login']
+		if collection.find_one({username:{"$exists": True}}) is not None:
+			returns = username + ": " + collection.find_one({username:{"$exists": True}})[username]
+			t = "Here are the results from your quiz on : "  + s
+			collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
+	return render_template('account.html', loggedIn = log, new_results =  r, prev_results = returns)
 
 def manufacturers_options():
 	with open('cars.json') as cars_data:
