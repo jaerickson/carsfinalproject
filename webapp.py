@@ -115,7 +115,7 @@ def account():
 	if len(car) > 0:
 		for i in car:
 			s += i + ", "
-		r = "Here are the results from your quiz: "  + s
+		r = "Here are the results from your previouse quiz on : "  + s
 	else:
 		r = "There were no cars that matched your requirements"
 	if 'user_data' in session:
