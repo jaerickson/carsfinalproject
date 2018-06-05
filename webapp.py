@@ -70,7 +70,7 @@ def account():
 	log = False
 	car = []
 	num = 3
-	returns = "No saved data"
+	returns = ""
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	if 'user_data' in session:
