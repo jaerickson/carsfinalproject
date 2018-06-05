@@ -105,21 +105,21 @@ def account():
 					continue
 		name = "" + i["Identification"]["ID"]
 		car.append(name)
-	r=""
-	s=""
-	if len(car) > 0:
-		for i in car:
-			s += i + ", "
-		r = "Here are the results from today's quiz: "  + s
-	else:
-		r = "There were no cars that matched your requirements"
-	if 'user_data' in session:
-		log = True
-		username = session['user_data']['login']
-		if collection.find_one({username:{"$exists": True}}) is not None:
-			returns = username + ": " + collection.find_one({username:{"$exists": True}})[username]
-			t = "Here are the results from your quiz on : "  + s
-			collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
+		r=""
+		s=""
+		if len(car) > 0:
+			for i in car:
+				s += i + ", "
+			r = "Here are the results from today's quiz: "  + s
+		else:
+			r = "There were no cars that matched your requirements"
+		if 'user_data' in session:
+			log = True
+			username = session['user_data']['login']
+			if collection.find_one({username:{"$exists": True}}) is not None:
+				returns = username + ": " + collection.find_one({username:{"$exists": True}})[username]
+				t = "Here are the results from your quiz on : "  + s
+				collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(t)}},upsert=True)
 	return render_template('account.html', loggedIn = log, new_results =  r, prev_results = returns)
 
 def manufacturers_options():
