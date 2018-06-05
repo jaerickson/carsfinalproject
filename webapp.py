@@ -69,8 +69,9 @@ def findcar():
 def account():
 	log = False
 	car = []
-	num = 3
 	returns = ""
+	r=""
+	s=""
 	with open('cars.json') as cars_data:
 		cars = json.load(cars_data)
 	for i in cars:
@@ -105,8 +106,6 @@ def account():
 					continue
 		name = "" + i["Identification"]["ID"]
 		car.append(name)
-		r=""
-		s=""
 		if len(car) > 0:
 			for i in car:
 				s += i + ", "
