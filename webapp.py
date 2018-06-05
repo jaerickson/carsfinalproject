@@ -105,7 +105,7 @@ def account():
 		car.append(name)
 	for i in car:
 		s += i + ", "
-	if len(car)==0):
+	if len(car)==0:
 		r = "We're sorry, we could not find any cars that matched what you were looking for"
 	else:
 		r = s
