@@ -75,11 +75,9 @@ def account():
 		cars = json.load(cars_data)
 	if 'user_data' in session:
 		log = True
-		print("it got here g")
-		print(session['user_data']['login'])
 		username = session['user_data']['login']
 		if collection.find_one({username:{"$exists": True}}) is not None:
-			returns = collection.find_one({username:{"$exists": True}})
+			returns = collection.find_one({username:{"$exists": True}}[1])
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
@@ -120,9 +118,8 @@ def account():
 		r = "Here are the results from your quiz: "  + s
 	else:
 		r = "There were no cars that matched your requirements"
-	if r != " ":
-		if 'user_data' in session:
-			collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(r)}},upsert=True)
+	if 'user_data' in session:
+		collection.update_one({session['user_data']['login']: {"$exists": True}},{"$set":{session['user_data']['login']:str(r)}},upsert=True)
 	return render_template('account.html', loggedIn = log, username =  returns, cars_results = r)
 
 def manufacturers_options():
