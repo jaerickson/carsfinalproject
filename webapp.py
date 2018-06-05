@@ -76,12 +76,10 @@ def account():
 		cars = json.load(cars_data)
 	if 'user_data' in session:
 		log = True
-		print("it got here g ")
+		print("it got here g")
 		print(session['user_data']['login'])
 		username = session['user_data']['login']
-		print(str({username:{"$exists": True}}) + "thiss")
 		if collection.find_one({username:{"$exists": True}}) is not None:
-			print("it got herererererere")
 			rets = collection.find_one({username:{"$exists": True}})
 	
 	for i in cars:
