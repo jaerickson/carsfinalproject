@@ -111,7 +111,7 @@ def account():
 				if i["Fuel Information"]["Fuel Type"]!= t:
 					continue
 		if 'q3' in request.args and (request.args['q3']=="no" and i["Hybrid"]==true:
-					     continue
+			continue
 		name = str(i["Hybrid"])
 		car.append(name)
 	#print(car)
