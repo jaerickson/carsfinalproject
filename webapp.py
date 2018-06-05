@@ -78,7 +78,7 @@ def account():
 		username = session['user_data']['login']
 		username = username.replace('\'', '"')
 		if collection.find_one({username:{"$exists": True}}) is not None:
-			returns = username + ": " + collection.find_one({username:{"$exists": True}[username]})
+			returns = username + ": " + collection.find_one({username:{"$exists": True}["kebudke"]})
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
