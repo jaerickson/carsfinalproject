@@ -112,7 +112,8 @@ def account():
 					continue
 		if ('q3' in request.args) and (request.args['q3']=="no") and (i["Hybrid"]==true):
 			continue
-		name = str(i["Hybrid"])
+		
+		name = i["Identification"]["ID"])
 		car.append(name)
 	#print(car)
 	ret = " "
