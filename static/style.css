@@ -10,9 +10,15 @@ p{
   	text-align:center;
 }
 #account{
-	font-size: 120%;
+	font-size: 125%;
 	color: #6E0309; 
   	text-align:left;
+}
+#head{
+	font-size: 160%;
+	color: #6E0309; 
+  	text-align:left;
+	margin-left: 60px;
 }
 
 form{
