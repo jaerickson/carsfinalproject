@@ -9,6 +9,11 @@ p{
 	color: #6E0309; 
   	text-align:center;
 }
+#account{
+	font-size: 120%;
+	color: #6E0309; 
+  	text-align:left;
+}
 
 form{
 	font-size: 125%;
