@@ -77,7 +77,7 @@ def account():
 		log = True
 		username = session['user_data']['login']
 		if collection.find_one({username:{"$exists": True}}) is not None:
-			returns = collection.find_one({username:{"$exists": True}}[1])
+			returns = username + ": " + collection.find_one({username:{"$exists": True}[username]})
 	for i in cars:
 		s = "aaaa"
 		if ('q1' in request.args) and (i["Identification"]["Classification"] != request.args['q1']):
