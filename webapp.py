@@ -108,6 +108,7 @@ def account():
 		s += i + ", "
 	if len(car)>0:
 		r = s
+	else: r= "There were no cars that matched your requests, we apologize."
 	if 'user_data' in session:
 		log = True
 		username = session['user_data']['login']
